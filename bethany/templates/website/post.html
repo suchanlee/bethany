@@ -1,0 +1,42 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}{{post.title}}{% endblock %}
+
+{% block content %}
+
+{% include "base/nav.html" %}
+
+<div class="post-container">
+
+	<div class="post-title">
+		<h2>{{post.title}}</h2>
+		{% if post.author == request.user %}
+		<a class="post-edit-anchor" href="/board/post/update/{{post.pk}}/">글 수정하기</a>
+		<a class="post-delete-anchor" href="/board/post/delete/{{post.pk}}/">글 지우기</a>
+		{% endif %}
+	</div>
+
+	<div class="post-info">
+		<table>
+			<tr>
+				<td class="post-info-author"><span class="post-info-label">글쓴이</span> {{post.author.username}}</td>
+				<td class="post-info-date"><span class="post-info-label">작성일</span> {{post.created|date:"n-j-y"}}</td>
+				<td class="post-info-views"><span class="post-info-label">조회수</span> {{post.views}}</td>
+			</tr>
+		</table>
+	</div>
+
+	<div class="post-content">
+		{{post.content|safe}}
+	</div>
+
+	<div class="post-comments"></div>
+
+</div>
+
+
+{% include "base/footer.html" %}
+
+{% endblock %}

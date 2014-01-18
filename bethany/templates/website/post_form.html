@@ -1,0 +1,74 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}{{post.title}}{% endblock %}
+
+{% block prestyles %}
+<link rel="stylesheet" href="{% static "suit-redactor/redactor/redactor.css" %}">
+{% endblock %}
+
+{% block content %}
+
+{% include "base/nav.html" %}
+
+<div class="post-container">
+
+	<script src="{% static "suit-redactor/redactor/redactor.min.js" %}"></script>
+
+	<form action="" enctype="multipart/form-data" method="POST">
+
+	<div class="hidden">
+		{% csrf_token %}
+		{{form.views}}
+		{{form.author}}
+		{{form.board}}
+		{{form.created}}
+	</div>
+
+	<div class="post-title">
+		{{form.title}}
+	</div>
+
+	<div class="post-info">
+		<table>
+			<tr>
+				<td class="post-info-author"><span class="post-info-label">글쓴이</span> {{request.user.last_name}}{{request.user.first_name}}</td>
+				{% if post %}
+				<td class="post-info-date"><span class="post-info-label">작성일</span> {{post.created|date:"n-j-y"}}</td>
+				<td class="post-info-views"><span class="post-info-label">조회수</span> {{post.views}}</td>
+				{% else %}
+				<td class="post-info-date" id="post-form-date"><span class="post-info-label">작성일</span> </td>
+				<td class="post-info-views"><span class="post-info-label">조회수</span> 0</td>
+				{% endif %}
+			</tr>
+		</table>
+	</div>
+
+	<div class="post-content">
+		{{form.content}}
+	</div>
+
+	<input type="submit" value="Submit" id="post-form-submit">
+
+	</form>
+
+</div>
+
+
+{% include "base/footer.html" %}
+
+<script>
+	$(document).ready(function() {
+		$('#id_title').attr('placeholder', '제목');
+		var date = new Date();
+		var day = date.getDate();
+		var month = date.getMonth() + 1;
+		var year = date.getYear()-100;;
+		var date_str = month + '-' + day + '-' + year;
+		var p = document.getElementById('post-form-date');
+		p.innerHTML = p.innerHTML + date_str;
+	});
+</script>
+
+{% endblock %}

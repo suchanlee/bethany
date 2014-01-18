@@ -1,0 +1,681 @@
+body {
+  margin: 0 0 0 0;
+  padding: 0 0 0 0;
+  font-family: 'Nanum Gothic', 'museo-sans', sans-serif;
+  color: #444444;
+}
+#container {
+  width: 960px;
+  margin: 0 auto;
+}
+#container #header {
+  display: block;
+  margin-top: 25px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #cccccc;
+}
+#container #header img {
+  width: 300px;
+}
+#container #header #header-login {
+  float: right;
+  margin-top: 71px;
+}
+#container #header #header-login p {
+  display: inline-block;
+  font-size: 0.85em;
+}
+#container #header #header-login p input {
+  border: none;
+  border: 1px solid #cccccc;
+  height: 22px;
+  width: 120px;
+  margin-right: 5px;
+  padding-left: 3px;
+}
+#container #header #header-login input[type="submit"] {
+  border: none;
+  height: 22px;
+  background-color: #cbd238;
+  font-size: 0.85em;
+  font-family: 'Nanum Gothic', 'museo-sans', sans-serif;
+  cursor: pointer;
+}
+#container #header #header-login #header-signup {
+  text-decoration: none;
+  background-color: #dddddd;
+  padding-top: 3px;
+  padding-bottom: 2px;
+  padding-left: 3px;
+  padding-right: 3px;
+  font-size: 0.85em;
+  color: #444444;
+}
+#container #header #header-login .nav-loggedin p {
+  display: inline-block;
+  padding-left: 10px;
+  padding-top: 14px;
+  color: #888888;
+}
+#container #header #header-login .nav-loggedin p a {
+  color: #888888;
+}
+#container #header #header-login .nav-loggedin form {
+  display: inline;
+}
+#container #header #header-login .nav-loggedin #logout_button {
+  background-color: white;
+  color: #888888;
+  font-size: 1em;
+}
+#container nav ul {
+  padding-left: 0px;
+}
+#container nav ul li {
+  text-align: center;
+  width: 17.6%;
+  margin-left: 1%;
+  margin-right: 1%;
+  display: inline-block;
+  border-bottom: 1px solid #cccccc;
+}
+#container nav ul li #selected a {
+  color: #bbbbbb;
+}
+#container nav ul li .nav-korean {
+  margin-top: 17px;
+  margin-bottom: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  font-size: 1.4em;
+  font-weight: 700;
+}
+#container nav ul li .nav-korean a {
+  color: #444444;
+  text-decoration: none;
+}
+#container nav ul li .nav-korean a:hover {
+  color: #cbd238;
+}
+#container nav ul li .nav-english {
+  margin-top: 2px;
+  margin-bottom: 19px;
+  font-size: 0.67em;
+}
+#container .swipeshow {
+  width: 100%;
+  height: 350px;
+}
+#container .object {
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  width: 850px;
+}
+#container .object hr {
+  margin-top: -15px;
+}
+#container .object p {
+  line-height: 1.5em;
+}
+#container .object #navigation {
+  margin-top: -20px;
+  background-color: #eee;
+  border: 1px solid #cccccc;
+  display: inline-block;
+}
+#container .object #navigation a {
+  color: #888888;
+  text-decoration: none;
+}
+#container .object #navigation a:hover {
+  text-decoration: underline;
+}
+#container .object #navigation li {
+  margin-top: 2px;
+  margin-bottom: 2px;
+  font-size: 0.9em;
+  color: #888888;
+}
+#container .object #navigation h3 {
+  padding-left: 25px;
+  padding-right: 25px;
+}
+#container .object #navigation ol {
+  padding-left: 45px;
+  padding-right: 15px;
+}
+#container .object #navigation ul {
+  display: inline-block;
+}
+#container #main-slideshow {
+  margin-top: 40px;
+}
+#container #main-slideshow ul {
+  padding-left: 0px;
+}
+#container #main-slideshow li {
+  display: block;
+}
+#container #main-slideshow .slides {
+  width: 100%;
+}
+#container #main-slideshow .slide-div {
+  margin: 0 auto;
+  width: 96%;
+  height: 350px;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+#container #main-sermon {
+  margin-top: 40px;
+  height: 450px;
+}
+#container #main-sermon iframe {
+  width: 100%;
+  height: 100%;
+}
+#container .sermons #sermons-head {
+  text-align: center;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #cccccc;
+  font-size: 1.2em;
+}
+#container .sermons ul {
+  padding-left: 0px;
+  margin-top: 0px;
+}
+#container .sermons ul li {
+  list-style-type: none;
+  width: 41%;
+  margin-left: 4.5%;
+  margin-right: 4%;
+  display: inline-block;
+  vertical-align: top;
+}
+#container .sermons .sermon-container {
+  padding-top: 45px;
+  padding-bottom: 45px;
+  border-bottom: 1px solid #cccccc;
+}
+#container .sermons .sermon-container img {
+  width: 100%;
+  height: 250px;
+}
+#container .sermons .sermon-title {
+  font-weight: 700;
+  font-size: 1.25em;
+  margin-top: 12px;
+}
+#container .sermons .sermon-title a {
+  color: #444444;
+  text-decoration: none;
+}
+#container .sermons .sermon-title a:hover {
+  text-decoration: underline;
+}
+#container .sermons .sermon-info {
+  margin-top: 4px;
+  font-weight: 300;
+}
+#container .sermons .sermon-title,
+#container .sermons .sermon-info {
+  margin-bottom: 0px;
+}
+#container .sermons .sermon-paginator {
+  margin-top: 60px;
+  text-align: center;
+}
+#container .sermons .sermon-paginator a {
+  padding-left: 2px;
+  padding-right: 2px;
+  font-size: 1.2em;
+  color: #888888;
+  text-decoration: none;
+}
+#container .sermons .sermon-paginator a:hover {
+  text-decoration: underline;
+}
+#container #sermon-detail #sermon-detail-info {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #cccccc;
+}
+#container #sermon-detail #sermon-detail-info p,
+#container #sermon-detail #sermon-detail-info h3 {
+  display: inline-block;
+}
+#container #sermon-detail #sermon-detail-info h3 {
+  font-size: 2em;
+  padding-left: 10px;
+  margin-bottom: 0px;
+}
+#container #sermon-detail #sermon-detail-info .sermon-detail-header {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.2em;
+  display: block;
+}
+#container #sermon-detail #sermon-detail-info .sermon-detail-info {
+  margin-left: 20px;
+  font-size: 0.9em;
+}
+#container .boards #boards-head {
+  text-align: center;
+  padding-top: 17px;
+  padding-bottom: 17px;
+  border-bottom: 1px solid #cccccc;
+  font-size: 1.2em;
+}
+#container .boards .board-layout {
+  margin-top: 30px;
+}
+#container .boards .board-layout table {
+  table-layout: fixed;
+}
+#container .boards .board-layout table tr {
+  border-bottom: 1px solid #eeeeee;
+  padding: 0 0 0 0;
+}
+#container .boards .board-layout table tr:hover {
+  background-color: #eeeeee;
+}
+#container .boards .board-layout table td {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  color: #999999;
+  font-size: 0.9em;
+}
+#container .boards .board-layout table .board-table-header td {
+  color: #555555;
+  font-weight: 700;
+  background-color: #eeeeee;
+}
+#container .boards .board-layout table .board-title {
+  width: 60%;
+  border-bottom: 1px solid #eeeeee;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+}
+#container .boards .board-layout table .board-title a {
+  color: #999999;
+  text-decoration: none;
+}
+#container .boards .board-layout table .board-title a:hover {
+  text-decoration: underline;
+}
+#container .boards .board-layout table .board-author,
+#container .boards .board-layout table .board-date {
+  width: 20%;
+  text-align: center;
+  border-bottom: 1px solid #eeeeee;
+}
+#container .boards .board-title {
+  border-bottom: 1px solid #cccccc;
+  padding-bottom: 5px;
+}
+#container .boards .board-title h2,
+#container .boards .board-title p {
+  display: inline-block;
+  margin-bottom: 5px;
+}
+#container .boards .board-title h2 a {
+  color: #444444;
+  text-decoration: none;
+}
+#container .boards .board-title h2 a:hover {
+  text-decoration: underline;
+}
+#container .boards .board-title p {
+  font-size: 0.9em;
+  color: #888888;
+  margin-left: 5px;
+  display: inline;
+}
+#container .boards .board-title .board-see-more {
+  float: right;
+  margin-right: 0px;
+  padding-top: 20px;
+  font-size: 0.8em;
+}
+#container .boards .board-title .board-see-more a {
+  color: #999999;
+  text-decoration: none;
+}
+#container .boards .board-title .board-add-post {
+  float: right;
+  padding-top: 15px;
+}
+#container .boards .board-title .board-add-post a {
+  color: #888888;
+  text-decoration: none;
+}
+#container .boards .board-title .board-add-post a:hover {
+  text-decoration: underline;
+}
+#container .boards .board-container {
+  width: 80%;
+  margin: 0 auto;
+}
+#container .boards .board-paginator {
+  margin-top: 20px;
+  margin-left: 10px;
+}
+#container .boards .board-paginator a {
+  padding-right: 5px;
+  color: #999999;
+  text-decoration: none;
+  font-size: 0.9em;
+}
+#container .post-container {
+  width: 80%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+#container .post-container .post-title {
+  border-bottom: 1px solid #cccccc;
+}
+#container .post-container .post-title h2 {
+  margin-bottom: 8px;
+  display: inline-block;
+}
+#container .post-container .post-info-label {
+  font-size: 0.8em;
+  margin-right: 2px;
+  color: #777777;
+}
+#container .post-container .post-info {
+  border-bottom: 1px dotted #cccccc;
+}
+#container .post-container .post-info td {
+  margin: 0 0 0 0;
+  padding: 10px 0px 10px 0px;
+  font-size: 0.9em;
+  color: #777777;
+}
+#container .post-container .post-info table {
+  table-layout: fixed;
+  width: 100%;
+}
+#container .post-container .post-info table .post-info-author {
+  width: 60%;
+}
+#container .post-container .post-info table .post-info-date,
+#container .post-container .post-info table .post-info-views {
+  width: 20%;
+}
+#container .post-container .post-info table .post-info-views {
+  text-align: right;
+}
+#container .post-container .post-content {
+  padding-top: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #cccccc;
+}
+#container .post-container .post-content p {
+  line-height: 1.5em;
+}
+#container .post-container .post-edit-anchor,
+#container .post-container .post-delete-anchor {
+  float: right;
+  padding-top: 33px;
+  padding-left: 15px;
+  color: #888888;
+  font-size: 0.8em;
+  text-decoration: none;
+}
+#container .post-container .post-edit-anchor:hover,
+#container .post-container .post-delete-anchor:hover {
+  text-decoration: underline;
+}
+#container .post-container #id_title {
+  width: 100%;
+  height: 45px;
+  font-family: 'Nanum Gothic', 'museo-sans', sans-serif;
+  font-weight: 700;
+  font-size: 1.35em;
+  padding-left: 5px;
+  padding-right: 5px;
+  border: none;
+}
+#container .post-container #post-form-submit {
+  margin-top: 20px;
+}
+#container #pagination-current-page {
+  color: #777777;
+  font-weight: 700;
+}
+#container #main-menu {
+  margin-top: 40px;
+  padding-top: 12px;
+  border-top: 1px solid #cccccc;
+}
+#container #main-menu ul {
+  padding-left: 0px;
+}
+#container #main-menu ul li {
+  text-align: center;
+  display: inline-block;
+  border-bottom: 1px solid #cccccc;
+  width: 22.5%;
+  margin-left: 1%;
+  margin-right: 1%;
+}
+#container #main-menu ul li img {
+  height: 13%;
+  margin-bottom: 20px;
+}
+#container #main-menu ul li span {
+  display: inline-block;
+  vertical-align: top;
+  margin-top: 38px;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+#container #main-menu ul li span a {
+  text-decoration: none;
+  color: #444444;
+}
+#container #main-menu ul li span a:hover {
+  color: #cbd238;
+}
+#container .content {
+  margin-top: 40px;
+  padding-top: 70px;
+  border-top: 1px solid #cccccc;
+  width: 100%;
+}
+#container .content p,
+#container .content ol,
+#container .content ul {
+  line-height: 1.5em;
+}
+#container .content .strong {
+  font-weight: 700;
+}
+#container .content .pheader {
+  font-size: 1.15em;
+  margin-top: 35px;
+  margin-bottom: 5px;
+}
+#container .content .content-menu {
+  width: 20%;
+  margin-right: 12%;
+}
+#container .content .content-menu ul {
+  padding-left: 15px;
+}
+#container .content .content-menu ul .li-first {
+  border-top: 1px solid #cccccc;
+}
+#container .content .content-menu ul .li-selected {
+  background-color: #bbbbbb;
+}
+#container .content .content-menu ul li {
+  text-align: center;
+  list-style-type: none;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid #cccccc;
+}
+#container .content .content-menu ul li:hover {
+  background-color: #eeeeee;
+}
+#container .content .content-menu ul li a {
+  text-decoration: none;
+  color: #444444;
+  font-weight: 700;
+  font-size: 1.2em;
+}
+#container .content .sub-content {
+  width: 60%;
+}
+#container .content .content-menu,
+#container .content .sub-content {
+  display: inline-block;
+  vertical-align: top;
+}
+#container .content #church-vision ul,
+#container .content #church-vision ol {
+  padding-left: 22px;
+}
+#container .content #serving-people {
+  display: none;
+}
+#container .content #serving-people ul {
+  padding-left: 0px;
+}
+#container .content #serving-people ul li {
+  list-style-type: none;
+}
+#container .content #serving-people #serving-people-pic {
+  margin-top: 30px;
+  text-align: center;
+}
+#container .content #church-history {
+  display: none;
+}
+#container .content #church-history p {
+  margin-top: 0px;
+}
+#container .content #church-history ul {
+  margin-top: 0px;
+  padding-left: 0px;
+}
+#container .content #church-history ul li {
+  list-style-type: none;
+}
+#container .content #church-history .pheader {
+  font-size: 1.15em;
+  margin-top: 35px;
+}
+#container .content #visit {
+  width: 75%;
+  margin: 0 auto;
+}
+#container .content #visit table {
+  text-align: left;
+  margin-top: 50px;
+  margin: 0 auto;
+}
+#container .content #visit table tr {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+#container .content #visit table td {
+  padding-right: 25px;
+}
+#container .register {
+  margin-top: 80px;
+  margin-bottom: 40px;
+  text-align: center;
+}
+#container .register form {
+  margin-top: 30px;
+}
+#container .register form table {
+  table-layout: fixed;
+  margin: 0 auto;
+}
+#container .register form table tr {
+  padding-top: 10px;
+}
+#container .register form table td {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+#container .register form table td input {
+  width: 200px;
+  height: 30px;
+  padding: 3px 5px 3px 5px;
+  font-size: 1em;
+  font-family: 'Nanum Gothic', 'museo-sans', sans-serif;
+  border: none;
+  border: 1px solid #cccccc;
+}
+#container .register form table .register-form-label {
+  text-align: right;
+}
+#container .register form input[type="submit"] {
+  margin-top: 40px;
+}
+#container .register-success {
+  margin-top: 60px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+#container .register-success a {
+  color: #888888;
+}
+#container .login {
+  text-align: center;
+}
+#container .login table {
+  table-layout: fixed;
+}
+#container .login table tr {
+  padding-top: 10px;
+}
+#container .login table td {
+  padding-right: 10px;
+  padding-left: 10px;
+  padding-top: 10px;
+}
+#container .login input {
+  width: 200px;
+  height: 30px;
+  padding: 3px 5px 3px 5px;
+  font-size: 1em;
+  font-family: 'Nanum Gothic', 'museo-sans', sans-serif;
+  border: none;
+  border: 1px solid #cccccc;
+}
+#container footer {
+  display: block;
+  margin-top: 80px;
+  padding-top: 20px;
+  padding-bottom: 60px;
+  border-top: 1px solid #cccccc;
+}
+#container footer ul {
+  padding-left: 80px;
+}
+#container footer ul li {
+  list-style-type: none;
+  margin-top: 15px;
+}
+#container footer ul li a {
+  text-decoration: none;
+  color: #888;
+  font-size: 0.9em;
+}
+#container footer ul li a:hover {
+  text-decoration: underline;
+}
+.hidden {
+  display: none;
+}

@@ -1,0 +1,88 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}게시판{% endblock %}
+
+{% block content %}
+
+{% include "base/nav.html" %}
+
+<div class="boards">
+
+<!-- 	<div id="boards-head">
+		<h3>게시판</h3>
+	</div> -->
+
+	<div class="board-container">
+
+		<div class="board-layout">
+			<div class="board-title">
+				<h2><a href="/board/notice/">공지사항</a></h2>
+				<p class="board-see-more"><a href="/board/notice/">MORE</a></p>
+			</div>
+			<table cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr class="board-table-header">
+					<td class="board-title">Title</td>
+					<td class="board-date">Date</td>
+				</tr>
+				{% for n in notices %}
+				<tr>
+					<td class="board-title"><a href="/board/post/notice/{{n.pk}}">{{n.title}}</a></td>
+					<td class="board-date">{{p.created|date:"n-j-y"}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+
+		<div class="board-layout">
+			<div class="board-title">
+				<h2><a href="/board/{{board1.pk}}/">{{board1.name}}</a></h2>
+				<p>{{board1.description}}</p>
+				<p class="board-see-more"><a href="/board/{{board1.pk}}/">MORE</a></p>
+			</div>
+			<table cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr class="board-table-header">
+					<td class="board-title">Title</td>
+					<td class="board-author">Author</td>
+					<td class="board-date">Date</td>
+				</tr>
+				{% for p in posts1 %}
+				<tr>
+					<td class="board-title"><a href="/board/post/{{board1.pk}}/{{p.pk}}">{{p.title}}</a></td>
+					<td class="board-author">{{p.author.username}}</td>
+					<td class="board-date">{{p.created|date:"n-j-y"}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+
+		<div class="board-layout">
+			<div class="board-title">
+				<h2><a href="/board/{{board2.pk}}/">{{board2.name}}</a></h2>
+				<p>{{board2.description}}</p>
+				<p class="board-see-more"><a href="/board/{{board2.pk}}/">MORE</a></p>
+			</div>
+			<table cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr class="board-table-header">
+					<td class="board-title">Title</td>
+					<td class="board-author">Author</td>
+					<td class="board-date">Date</td>
+				</tr>
+				{% for p in posts2 %}
+				<tr>
+					<td class="board-title"><a href="/board/post/{{board2.pk}}/{{p.pk}}">{{p.title}}</a></td>
+					<td class="board-author">{{p.author.username}}</td>
+					<td class="board-date">{{p.created|date:"n-j-y"}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	</div>
+
+</div>
+
+
+{% include "base/footer.html" %}
+
+{% endblock %}

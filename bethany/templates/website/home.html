@@ -1,0 +1,66 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}코넬 베다니 교회에 오신걸 환영합니다{% endblock %}
+
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static "css/jquery.swipeshow.css" %}">{% endblock %}
+
+{% block content %}
+
+{% include "base/nav.html" %}
+
+<div id="main-slideshow" class="swipeshow">
+	<ul class="slides">
+		<li class="slide">
+			<div class="slide-div" style="background-image: url('{% static "img/7XJUMRi.jpg" %}');">slide1</div>
+		</li>
+		<li class="slide">
+			<div class="slide-div">slide2</div>
+		</li>
+	</ul>
+</div>
+
+<div id="main-menu">
+	<ul>
+		<li>
+			<div>
+				<a href="/visit/"><img src="{% static "img/time.png" %}" alt="visit"></a>
+				<span><a href="/visit/">예배시간</a></span>
+			</div>
+		</li>
+		<li>
+			<div>
+				<img src="{% static "img/map.png" %}" alt="">
+				<span><a href="">오시는 길</a></span>
+			</div>
+		</li>
+		<li>
+			<div>
+				<a href="/sermons/"><img src="{% static "img/sermon.png" %}" alt="sermon"></a>
+				<span><a href="/sermons/">설교영상</a></span>
+			</div>
+		</li>
+		<li>
+			<div>
+				<a href="/korean/"><img src="{% static "img/korean.png" %}" alt="korean_school"></a>
+				<span><a href="/korean/">한글학교</a></span>
+			</div>
+		</li>
+	</ul>
+</div>
+
+{% include "base/footer.html" %}
+
+{% endblock %}
+
+{% block js %}
+
+<script src="{% static "js/jquery.swipeshow.min.js" %}"></script>
+<script>
+	$(function() {
+		$('#main-slideshow').swipeshow();
+	});
+</script>
+
+{% endblock %}

@@ -1,0 +1,151 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}코넬 베다니 교회 소개{% endblock %}
+
+{% block styles %}<link rel="stylesheet" type="text/css" href="{% static "css/jquery.swipeshow.css" %}">{% endblock %}
+
+{% block content %}
+
+{% include "base/nav.html" %}
+
+<div id="main-slideshow" class="swipeshow">
+	<ul class="slides">
+		<li class="slide">
+			<div class="slide-div" style="background-image: url('{% static "img/7XJUMRi.jpg" %}');">slide1</div>
+		</li>
+		<li class="slide">
+			<div class="slide-div">slide2</div>
+		</li>
+	</ul>
+</div>
+
+<div class="content">
+	<div class="content-menu">
+		<ul>
+			<li class="li-first li-selected"><a href="" title="church-vision">교회 비전</a></li>
+			<li><a href="" title="serving-people">섬기는 사람들</a></li>
+			<li><a href="" title="church-history">교회 연혁</a></li>
+		</ul>
+	</div>
+	<div class="sub-content" id="church-vision">
+	<p>2012년 5월 19일 창립된 코넬 베다니 교회(CBKC: Cornell Bethany Korean Church)는 하나님을 영화롭게 하는 것에 교회의 목적을 두고 있습니다. 코넬 베다니 교회는 예수 그리스도 보혈의 사랑으로 회복됨과 세워짐이 있는 교회, 예수 그리스도 부활의 능력으로 승리하고 증거하는 교회를 소망합니다.</p>
+
+	<p class="strong pheader">CBKC의 존재 목적(Mission)</p>
+	<p>예수 그리스도의 십자가 사랑과 부활의 능력으로 하나님을 영화롭게 하는 교회</p>
+
+	<p class="strong pheader">CBKC의 핵심가치 (Values)</p>
+	<ul>
+		<li>복음 – 예수 그리스도의 십자가 사랑만이 구원의 능력 입니다.</li>
+		<li>실천 – 그리스도인은 삶 가운데 받은 말씀을 적극적으로 실천합니다.</li>
+		<li>능력 – 십자가의 사랑의 경험과 말씀 순종의 삶 가운데 부활의 능력이 나타납니다. </li>
+		<li>증거 – 그리스도인은 예수 그리스도 십자가 사랑과 부활의 능력을 증거합니다.</li>
+	</ul>
+
+	<p class="strong pheader">CBKC의 소망 (Vision)</p>
+	<ul>
+		<li>예수 그리스도의 보혈의 사랑으로 치유되고 회복되어 세워지는 주의 자녀</li>
+		<li>예수 그리스도의 부활의 능력으로 이민과 유학의 삶 가운데서 승리하는 교우들과 가정</li>
+		<li>예수 그리스도의 보혈의 사랑과 부활의 능력가운데 그리스도를 증거하는 평신도 사역자</li>
+	</ul>
+
+	<p class="strong pheader">CBKC의 중점사역전략 (Strategy)</p>
+	<ol>
+		<li>
+			<span class="strong">예수 그리스도 십자가 사랑을 경험하는 복음사역</span>
+			<ul>
+				<li>예수 그리스도 십자가 사랑과 부활의 능력이 충만한 역동적 예배</li>
+				<li>예수 그리스도 십자가 사랑과 부활이 증거되는 강해 설교</li>
+				<li>예수 그리스도 십자가 사랑으로 치유되고 회복되어 세워지는 개인과 가정</li>
+			</ul>
+		</li>
+		<li>
+			<span class="strong">예수 그리스도 부활의 능력이 교우들의 삶가운데 나타나는 능력사역</span>
+			<ul>
+				<li>부활의 능력이 나타나는 말씀 실천을 생활화하는 성결한 교우</li>
+				<li>부활의 능력으로 삶 속에서 승리하는 이민2세와 코넬의 젊은이</li>
+				<li>삶 속에 나타나는 부활의 능력을 나누는 소그룹 성경공부</li>
+			</ul>
+		</li>
+		<li>
+			<span class="strong">예수 그리스도의 마지막 지상 명령에 충성된 증거사역</span>
+			<ul>
+				<li>코넬과 이타카 지역을 향한 예수 그리스도 십자가 사랑의 실천</li>
+				<li>평신도 선교사로 파송되는 코넬의 젊은이</li>
+				<li>십자가 사랑과 부활의 능력을 땅끝까지 전하는 제자의 삶</li>
+			</ul>
+		</li>
+	</ol>
+	</div>
+
+	<div class="sub-content" id="serving-people">
+
+		<div id="serving-people-pic">
+			<img src="{% static "img/pastor_pic.jpg" %}" alt="pastor picture">
+		</div>
+
+		<p class="strong pheader">담임 목사 이 상 원</p>
+
+		<ul>
+			<li>(전) 뉴욕벧엘성결교회 협동목사(NY)</li>
+			<li>(전) 퀸즈장로교회 부목사(NY)</li>
+			<li>(전) 새언약교회 교육전도사 및 교육목사(TX) (전) 신길교회 교육전도사(서울)</li>
+		</ul>
+		<ul>
+			<li>서울신학대학교 신학과 졸업(B.A.)</li>
+			<li>연세대학교 연합신학대학원 졸업(M.Div.목회신학전공)</li>
+			<li>Dallas Theological Seminary 졸업(Th.M. 성경강해.목회사역전공) 연락처 : 718-869-3570</li>
+		</ul>
+	</div>
+
+	<div class="sub-content" id="church-history">
+		<p class="strong pheader">2013.9</p>
+		<ul>
+			<li>2013년 9월 6일 첫 전교우 삶성경공부 모임을 신혜선 집사 가정, 이상원 목사 가정에서 갖음</li>
+			<li>2013년 9월 7일 첫 토요새벽예배를 Upson Hall에서 드림</li>
+		</ul>
+
+		<p class="strong pheader">2013.8</p>
+		<p>교회명을 코넬 베다니 교회(Cornell Bethany Korean Church, CBKC)로 변경하고 코넬 대학교 학생단체 자체 등록을 마침</p>
+
+		<p class="strong pheader">2013.7</p>
+		<p>제 2대 담임목사님으로 이상원 목사 부임</p>
+
+		<p class="strong pheader">2013.6</p>
+		<p>청빙위원회에서 뉴욕벧엘성결교회 이상원 목사님을 설교 목사로 초대</p>
+
+		<p class="strong pheader">2012.8</p>
+		<p>2012년 8월 26일 Cornell University 캠퍼스 안으로 예배 장소를 확정하고 Upson Hall at Cornell 예배를 드리기 시작</p>
+
+		<p class="strong pheader">2012.6</p>
+		<p>교회명을 이타카 베다니 한인 교회(Ithaca Bethany Korean Church, IBKC)로 정하고 뉴욕주 등록을 마치고 First Presbyterian Church of Ithaca 에서 주일예배를 드림(2012.6.16.-2012.8.19)</p>
+
+		<p class="strong pheader">2012.5</p>
+		<p>2012년 5월 19일 코넬의 젊은이와 이타카 교민 10여 가정이 존 황 목사님을 초대 담임목사(2013년 5월 사임)로, 장석준 목사님을(2013년 5월 사임) 부목사로 모시고 Anabel Taylor Hall @ Cornell에서 첫 예배를 드림</p>
+	</div>
+
+</div>
+
+{% include "base/footer.html" %}
+
+{% endblock %}
+
+{% block js %}
+
+<script src="{% static "js/jquery.swipeshow.min.js" %}"></script>
+<script>
+	$(function() {
+		$('.content-menu li a').click(function() {
+			$('.content-menu li').removeClass('li-selected');
+			$(this).parent().addClass('li-selected');
+			$('.sub-content').css('display', 'none');
+			var _id = '#' + $(this).attr('title');
+			console.log(_id);
+			$(_id).css('display', 'inline-block');
+			return false;
+		});
+	});
+</script>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}이타카 지역안내{% endblock %}
+
+{% block content %}
+
+{% include "base/nav.html" %}
+
+<div id="main-slideshow">
+	<ul class="slides">
+		<li class="slide">
+			<div class="slide-div" style="background-image: url('{% static "img/ithaca_community.jpg" %}');"></div>
+		</li>
+	</ul>
+</div>
+
+<div class="object">
+	{{object.content|safe}}
+</div>
+
+
+{% include "base/footer.html" %}
+
+{% endblock %}

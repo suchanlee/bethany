@@ -1,0 +1,65 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}{{board.name}}{% endblock %}
+
+{% block content %}
+
+{% include "base/nav.html" %}
+
+<div class="boards">
+
+	<div class="board-container">
+		<div class="board-layout">
+			<div class="board-title">
+				{% if notice %}
+				<h2>공지사항</h2>
+				{% else %}
+				<h2>{{board.name}}</h2>
+				{% endif %}
+				<p>{{board.description}}</p>
+				{% if request.user.is_authenticated and not notice %}
+				<p class="board-add-post"><a href="/board/post/{{board.pk}}/create/">+글쓰기</a></p>
+				{% endif %}
+			</div>
+			<table cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr class="board-table-header">
+					<td class="board-title">Title</td>
+					<td class="board-author">Author</td>
+					<td class="board-date">Date</td>
+					{# <td class="board-views">Views</td> #}
+				</tr>
+				{% for p in posts %}
+				<tr>
+					{% if notice %}
+					<td class="board-title"><a href="/board/post/notice/{{p.pk}}">{{p.title}}</a></td>
+					{% else %}
+					<td class="board-title"><a href="/board/post/{{board.pk}}/{{p.pk}}">{{p.title}}</a></td>
+					{% endif %}
+					<td class="board-author">{{p.author.username}}</td>
+					<td class="board-date">{{p.created|date:"n-j-y"}}</td>
+					{# <td class="board-views">{{p.views}}</td> #}
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+
+		<div class="board-paginator">
+			{% for i in total_pages %}
+				{% if i == current_page %}
+				<a id="pagination-current-page" href="?pages={{i}}">{{i}}</a>
+				{% else %}
+				<a href="?pages={{i}}">{{i}}</a>
+				{% endif %}
+			{% endfor %}
+		</div>
+
+	</div>
+
+</div>
+
+
+{% include "base/footer.html" %}
+
+{% endblock %}

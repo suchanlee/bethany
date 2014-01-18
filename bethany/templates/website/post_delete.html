@@ -1,0 +1,24 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}{{post.title}} - 지우기{% endblock %}
+
+{% block content %}
+
+{% include "base/nav.html" %}
+
+<div class="post-container">
+
+	<form action="" method="POST">
+		{% csrf_token %}
+	    <p>정말로 "{{ object.title }}"를 지우시겠습니까?</p>
+	    <input type="submit" value="네">
+	</form>
+
+</div>
+
+
+{% include "base/footer.html" %}
+
+{% endblock %}

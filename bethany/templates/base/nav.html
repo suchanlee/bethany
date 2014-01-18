@@ -1,0 +1,60 @@
+{% load staticfiles %}
+
+<div id="header">
+	<a href="/"><img src="{% static "img/bethany_logo.png" %}" alt="bethany_logo"></a>
+	<div id="header-login">
+		{% if request.user.is_authenticated %}
+		<div class="nav-loggedin">
+        	<form action="{% url 'django.contrib.auth.views.logout' %}" method="POST">
+			<p>{{request.user.last_name}}{{request.user.first_name}}님</p>
+        	{% csrf_token %}
+        	<p><input type="submit" value="로그아웃" id="logout_button"></p>
+            <input type="hidden" name="next" value="/">
+        	</form>
+		</div>
+		{% else %}
+			<form action="/login/" method="POST">
+				{% csrf_token %}
+				<p>ID {{auth_form.username}}</p>
+				<p>PW {{auth_form.password}}</p>
+				<input type="submit" value="GO">
+				<a href="/register/" id="header-signup">SIGN UP</a>
+			</form>
+		{% endif %}
+	</div>
+</div>
+
+<nav>
+	<ul>
+		<li>
+			<div>
+				<p class="nav-korean" {% if page == 'about' %}id="selected"{% endif %}><a href="/about/">교회소개</a></p>
+				<p class="nav-english">ABOUT</p>
+			</div>
+		</li>
+		<li>
+			<div>
+				<p class="nav-korean" {% if page == 'visit' %}id="selected"{% endif %}><a href="/visit/">예배안내</a></p>
+				<p class="nav-english">VISIT</p>
+			</div>
+		</li>
+		<li>
+			<div>
+				<p class="nav-korean" {% if page == 'sermons' %}id="selected"{% endif %}><a href="/sermons/">설교영상</a></p>
+				<p class="nav-english">SERMONS</p>
+			</div>
+		</li>
+		<li>
+			<div>
+				<p class="nav-korean" {% if page == 'community' %}id="selected"{% endif %}><a href="/community/">지역안내</a></p>
+				<p class="nav-english">COMMUNITY</p>
+			</div>
+		</li>
+		<li>
+			<div>
+				<p class="nav-korean" {% if page == 'board' %}id="selected"{% endif %}><a href="/board/">게시판</a></p>
+				<p class="nav-english">BOARD</p>
+			</div>
+		</li>
+	</ul>
+</nav>

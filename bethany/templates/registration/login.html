@@ -1,0 +1,17 @@
+
+
+<form action="/login/" method="POST">
+	{% csrf_token %}
+	<table>
+		<tr>
+			<td class="register-form-label">ID</td>
+			<td>{{auth_form.username}}</td>
+		</tr>
+		<tr>
+			<td class="register-form-label">PW</td>
+			<td>{{auth_form.password}}</td>
+		</tr>
+	</table>
+	<input type="submit" value="Login">
+	<a href="/register/" id="header-signup">Sign up</a>
+</form>
