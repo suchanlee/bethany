@@ -305,12 +305,14 @@ def user_register_view(request):
 			template_name = 'registration/register_success.html'
 			context = {
 				'form': form,
+				'auth_form': UserLoginForm(),
 			}
 			return TemplateResponse(request, template_name, context, current_app=None)
 
 
 	context = {
 		'form': form,
+		'auth_form': UserLoginForm(),
 	}
 	return render_to_response(template_name,
 		context_instance = RequestContext(request, context))
