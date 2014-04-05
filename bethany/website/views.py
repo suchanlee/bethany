@@ -1,4 +1,3 @@
-from django.shortcuts import render
 from django.views.generic import TemplateView, ListView, CreateView, FormView, UpdateView, DeleteView
 from django.db.models import Q
 from django.http import Http404
@@ -12,7 +11,7 @@ from django.contrib.auth import login, authenticate
 
 from braces.views import LoginRequiredMixin, StaffuserRequiredMixin
 
-from website.models import Sermon, IthacaLife, KoreanSchool, Notice
+from website.models import Sermon, IthacaLife, KoreanSchool, Notice, Interview, Slideshow
 from simple_board.models import Board, Post
 from website.forms import PostForm, UserLoginForm, UserRegistrationForm
 
@@ -25,6 +24,10 @@ class HomeView(TemplateView):
 	def get_context_data(self, **kwargs):
 		context = super(HomeView, self).get_context_data(**kwargs)
 		context = {}
+		context['sermon'] = Sermon.objects.order_by('-created')[1]
+		context['posts'] = Post.objects.order_by('-created')[:5]
+		context['notices'] = Notice.objects.order_by('-created')[:5]
+		context['slides'] = Slideshow.objects.order_by('-created')[:3]
 		context['auth_form'] = UserLoginForm
 		return context
 
@@ -41,6 +44,18 @@ class CommunityView(TemplateView):
 		return context
 
 
+class StudentTipView(TemplateView):
+	template_name = 'website/student.html'
+
+	def get_context_data(self, **kwargs):
+		context = {}
+		context['page'] = 'community'
+		context['subpage'] = 'student'
+		context['auth_form'] = UserLoginForm
+		context['interviews'] = Interview.objects.all().order_by('major')
+		return context
+
+
 class KoreanSchoolView(TemplateView):
 	template_name = 'website/korean_school.html'
 
@@ -49,6 +64,17 @@ class KoreanSchoolView(TemplateView):
 		context = {}
 		context['object'] = KoreanSchool.objects.get(id=1)
 		context['auth_form'] = UserLoginForm
+		context['page'] = 'korean'
+		return context
+
+
+class ContactView(TemplateView):
+	template_name = 'website/contact.html'
+
+	def get_context_data(self, **kwargs):
+		context = {}
+		context['auth_form'] = UserLoginForm
+		context['page'] = 'contact'
 		return context
 
 
@@ -134,7 +160,16 @@ class NoticePostView(TemplateView):
 		context = {}
 		context['auth_form'] = UserLoginForm
 		context['page'] = 'board'
+
 		post = Notice.objects.get(pk=kwargs['pk'])
+		post.views += 1
+		post.save()
+
+		if post.attachment:
+			attach_name = post.attachment.path.split('/')
+			print attach_name
+			context['attachment_name'] = attach_name[len(attach_name)-1]
+
 		context['post'] = post
 		return context
 
@@ -147,9 +182,11 @@ class PostView(TemplateView):
 		context = {}
 		context['auth_form'] = UserLoginForm
 		context['page'] = 'board'
+
 		post = Post.objects.get(pk=kwargs['post_pk'])
 		post.views += 1
 		post.save()
+
 		context['post'] = post
 		return context
 
@@ -181,7 +218,10 @@ class PostUpdateView(LoginRequiredMixin, UpdateView):
 	success_url = '/board/'
 
 	def get_context_data(self, **kwargs):
-		context = super(PostCreateView, self).get_context_data(**kwargs)
+		context = super(PostUpdateView, self).get_context_data(**kwargs)
+		post = context['object']
+		if post.author != self.request.user:
+			raise Http404
 		context['auth_form'] = UserLoginForm
 		return context
 
@@ -192,7 +232,10 @@ class PostDeleteView(LoginRequiredMixin, DeleteView):
 	success_url = '/board/'
 
 	def get_context_data(self, **kwargs):
-		context = super(PostCreateView, self).get_context_data(**kwargs)
+		context = super(PostDeleteView, self).get_context_data(**kwargs)
+		post = context['object']
+		if post.author != self.request.user:
+			raise Http404
 		context['auth_form'] = UserLoginForm
 		return context
 

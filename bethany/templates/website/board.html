@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/structure.html" %}
 
 {% load staticfiles %}
 
@@ -6,13 +6,9 @@
 
 {% block content %}
 
-{% include "base/nav.html" %}
+<h1>게시판<span class="eng-heading">BOARD</span></h1>
 
 <div class="boards">
-
-<!-- 	<div id="boards-head">
-		<h3>게시판</h3>
-	</div> -->
 
 	<div class="board-container">
 
@@ -29,7 +25,7 @@
 				{% for n in notices %}
 				<tr>
 					<td class="board-title"><a href="/board/post/notice/{{n.pk}}">{{n.title}}</a></td>
-					<td class="board-date">{{p.created|date:"n-j-y"}}</td>
+					<td class="board-date">{{n.created|date:"n-j-y"}}</td>
 				</tr>
 				{% endfor %}
 			</table>
@@ -81,8 +77,5 @@
 	</div>
 
 </div>
-
-
-{% include "base/footer.html" %}
 
 {% endblock %}

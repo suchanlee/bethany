@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/structure.html" %}
 
 {% load staticfiles %}
 
@@ -6,21 +6,18 @@
 
 {% block content %}
 
-{% include "base/nav.html" %}
-
-<div id="sermon-detail">
-	<div id="sermon-detail-info">
-		<p class="sermon-detail-header">주일 설교 영상</p>
-		<h3>{{sermon.title}}</h3>
+<div class="sermon-detail">
+	<div class="sermon-detail-info">
+		<h1>{{sermon.title}}</h1>
 		<p class="sermon-detail-info">{{sermon.bible_verses}} | {{sermon.preacher}} | {{sermon.date|date:"n.j.o"}}</p>
+		<p class="sermon-list-link"><a href="/sermons/">설교 목록</a></p>
+		<div class="clear"></div>
 	</div>
 
-	<div id="main-sermon">
+	<div class="main-sermon">
 		{{sermon.embed|safe}}
 	</div>
 
 </div>
-
-{% include "base/footer.html" %}
 
 {% endblock %}

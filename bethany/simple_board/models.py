@@ -18,7 +18,7 @@ class Post(models.Model):
 	title = models.CharField(max_length=250)
 	author = models.ForeignKey(User)
 	created = models.DateTimeField(auto_now_add=True)
-	content = models.TextField()
+	content = models.TextField(blank=True)
 	views = models.IntegerField(blank=True, null=True, default=0)
 
 

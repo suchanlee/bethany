@@ -1,0 +1,45 @@
+{% extends "base/structure.html" %}
+
+{% load staticfiles %}
+
+{% block title %}학교 생활{% endblock %}
+
+{% block content %}
+
+<h1>학교 생활<span class="eng-heading">STUDENT LIFE</span></h1>
+
+<p>신입생들을 위한 언니 오빠들의 인터뷰/조언입니다!</p>
+
+<div class="interviews">
+	{% for i in interviews %}
+	<div class="interview">
+		<p class="interview-title"><a href="#"><span class="interview-major">{{i.major}}</span> in the {{i.college}}</a> <span class="interview-year">Class of {{i.grad_year}}</span></p>
+		<div class="interview-answers">
+			<h3>내가 하고 있는 공부는!</h3>
+			<p>{{i.q1}}</p>
+			<h3>후배님들 이 수업만은 꼭!!!</h3>
+			<p>{{i.q2}}</p>
+			<h3>코넬 대학교의 맛집을 찾아서</h3>
+			<p>{{i.q3}}</p>
+			<h3>이타카 생활정보</h3>
+			<p>{{i.q4}}</p>
+			<h3>홈 스윗 홈 인 이타카</h3>
+			<p>{{i.q5}}</p>
+			<h3>이타카 코넬 대학교 서바이벌 메뉴얼</h3>
+			<p>{{i.q6}}</p>
+		</div>
+	</div>
+	{% endfor %}
+</div>
+
+<script>
+	$(document).ready(function() {
+		$('.interview-title').click(function() {
+			var answers = $($(this).siblings('.interview-answers'));
+			answers.toggle();
+		});
+	});
+</script>
+
+
+{% endblock %}

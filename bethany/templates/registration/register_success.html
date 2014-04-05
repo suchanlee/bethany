@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/structure.html" %}
 
 {% load staticfiles %}
 
@@ -6,15 +6,11 @@
 
 {% block content %}
 
-{% include "base/nav.html" %}
-
 <div class="register-success">
 	<h2>베다니 교회 웹사이트에 환영합니다</h2>
 	<p>교회에 정상적으로 가입되셨습니다.</p>
 	<p><a href="/">홈페이지로 가기</a></p>
 </div>
 
-
-{% include "base/footer.html" %}
 
 {% endblock %}

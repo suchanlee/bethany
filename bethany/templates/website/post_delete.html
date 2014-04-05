@@ -1,12 +1,10 @@
-{% extends "base/base.html" %}
+{% extends "base/structure.html" %}
 
 {% load staticfiles %}
 
 {% block title %}{{post.title}} - 지우기{% endblock %}
 
 {% block content %}
-
-{% include "base/nav.html" %}
 
 <div class="post-container">
 
@@ -17,8 +15,5 @@
 	</form>
 
 </div>
-
-
-{% include "base/footer.html" %}
 
 {% endblock %}

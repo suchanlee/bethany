@@ -1,20 +1,14 @@
-{% extends "base/base.html" %}
+{% extends "base/structure.html" %}
 
 {% load staticfiles %}
 
 {% block title %}코넬 베다니 교회 설교{% endblock %}
 
-{% block styles %}<link rel="stylesheet" type="text/css" href="{% static "css/jquery.swipeshow.css" %}">{% endblock %}
-
 {% block content %}
 
-{% include "base/nav.html" %}
-
+<h1>주일 설교 영상<span class="eng-heading">SERMONS</span></h1>
 
 <div class="sermons">
-	<div id="sermons-head">
-		<h3>주일 설교 영상</h3>
-	</div>
 	<ul>
 		{% for s in sermons %}
 		<li>
@@ -26,6 +20,7 @@
 		</li>
 		{% endfor %}
 	</ul>
+	<div class="clear"></div>
 	<div class="sermon-paginator">
 		{% for i in total_pages %}
 			{% if i == current_page %}
@@ -36,8 +31,6 @@
 		{% endfor %}
 	</div>
 </div>
-
-{% include "base/footer.html" %}
 
 {% endblock %}
 

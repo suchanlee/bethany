@@ -1,26 +1,18 @@
-{% extends "base/base.html" %}
+{% extends "base/structure.html" %}
 
 {% load staticfiles %}
 
-{% block title %}한글학교{% endblock %}
+{% block title %}한글 학교{% endblock %}
 
 {% block content %}
 
-{% include "base/nav.html" %}
+<h1>한글학교<span class="eng-heading">KOREAN SCHOOL</span></h1>
 
-<div id="main-slideshow">
-	<ul class="slides">
-		<li class="slide">
-			<div class="slide-div" style="background-image: url('{% static "img/korean.jpg" %}');"></div>
-		</li>
-	</ul>
-</div>
+<div class="main-image background" style="background-image: url('{% static "img/korean.jpg" %}');"></div>
 
 <div class="object">
 	{{object.content|safe}}
 </div>
 
-
-{% include "base/footer.html" %}
 
 {% endblock %}

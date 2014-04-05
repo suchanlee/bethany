@@ -1,26 +1,19 @@
-{% extends "base/base.html" %}
+{% extends "base/structure.html" %}
 
 {% load staticfiles %}
 
-{% block title %}이타카 지역안내{% endblock %}
+{% block title %}이타카 지역 안내{% endblock %}
 
 {% block content %}
 
-{% include "base/nav.html" %}
+<h1>지역 안내<span class="eng-heading">COMMUNITY</span></h1>
 
-<div id="main-slideshow">
-	<ul class="slides">
-		<li class="slide">
-			<div class="slide-div" style="background-image: url('{% static "img/ithaca_community.jpg" %}');"></div>
-		</li>
-	</ul>
+<div class="main-image background" style="background-image: url('{% static "img/ithaca_community.jpg" %}');">
 </div>
 
 <div class="object">
 	{{object.content|safe}}
 </div>
 
-
-{% include "base/footer.html" %}
 
 {% endblock %}

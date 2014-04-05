@@ -1,53 +1,67 @@
-{% extends "base/base.html" %}
+{% extends "base/structure.html" %}
 
 {% load staticfiles %}
 
 {% block title %}코넬 베다니 교회에 오신걸 환영합니다{% endblock %}
 
-{% block styles %}<link rel="stylesheet" type="text/css" href="{% static "css/jquery.swipeshow.css" %}">{% endblock %}
+{% block styles %}
+<link rel="stylesheet" type="text/css" href="{% static "css/jquery.swipeshow.css" %}">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+{% endblock %}
 
 {% block content %}
 
-{% include "base/nav.html" %}
-
-<div id="main-slideshow" class="swipeshow">
+<div class="swipeshow main-slideshow" id="main-slideshow">
 	<ul class="slides">
+		{% for slide in slides %}
 		<li class="slide">
-			<div class="slide-div" style="background-image: url('{% static "img/7XJUMRi.jpg" %}');">slide1</div>
+			<div class="slide-div" style="background-image: url('{{MEDIA_URL}}{{slide.image}}');"></div>
 		</li>
+		{% endfor %}
 	</ul>
+  	<i class="next slideshow-buttons fa fa-angle-right"></i>
+  	<i class="previous slideshow-buttons fa fa-angle-left"></i>
 </div>
 
-<div id="main-menu">
-	<ul>
-		<li>
-			<div>
-				<a href="/visit/"><img src="{% static "img/time.png" %}" alt="visit"></a>
-				<span><a href="/visit/">예배시간</a></span>
-			</div>
-		</li>
-		<li>
-			<div>
-				<img src="{% static "img/map.png" %}" alt="">
-				<span><a href="">오시는 길</a></span>
-			</div>
-		</li>
-		<li>
-			<div>
-				<a href="/sermons/"><img src="{% static "img/sermon.png" %}" alt="sermon"></a>
-				<span><a href="/sermons/">설교영상</a></span>
-			</div>
-		</li>
-		<li>
-			<div>
-				<a href="/korean/"><img src="{% static "img/korean.png" %}" alt="korean_school"></a>
-				<span><a href="/korean/">한글학교</a></span>
-			</div>
-		</li>
-	</ul>
+<div class="main-menu">
+	<div class="main-half main-half-left">
+		<h2><a href="{% url 'board' %}">NEW NOTICES</a></h2>
+			<table>
+				<tr class="home-posttable-heading">
+					<td>TITLE</td>
+					<td>DATE</td>
+				</tr>
+			{% for n in notices %}
+			<tr>
+				<td><a href="{% url 'notice_post' n.pk %}">{{n.title}}</a></td>
+				<td>{{n.created|date:"n-j-y"}}</td>
+			</tr>
+			{% endfor %}
+			</table>
+		<h2><a href="{% url 'board' %}">NEW POSTS</a></h2>
+			<table>
+				<tr class="home-posttable-heading">
+					<td>TITLE</td>
+					<td>DATE</td>
+				</tr>
+			{% for p in posts %}
+			<tr>
+				<td><a href="{% url 'post_detail' p.board.pk p.pk %}">{{p.title}}</a></td>
+				<td>{{p.created|date:"n-j-y"}}</td>
+			</tr>
+			{% endfor %}
+			</table>
+	</div>
+	<div class="main-half main-half-right">
+		<h2><a href="{% url 'sermons' %}">THIS WEEK'S SERMON</a></h2>
+		<div class="home-sermon">
+			<a href="{% url 'sermon_detail' sermon.pk %}"><img src="{{sermon.thumbnail}}" alt="sermon thumbnail"></a>
+			<p class="home-sermon-title"><a href="{% url 'sermon_detail' sermon.pk %}">{{sermon.title}}</a> <span class="home-sermon-verse">{{sermon.bible_verses}}</span></p>
+			<p class="home-sermon-info">{{sermon.preacher}} | {{sermon.date|date:"M j, o"}}</p>
+		</div>
+	</div>
+	<div class="clear"></div>
 </div>
-
-{% include "base/footer.html" %}
 
 {% endblock %}
 
@@ -56,7 +70,19 @@
 <script src="{% static "js/jquery.swipeshow.min.js" %}"></script>
 <script>
 	$(function() {
-		$('#main-slideshow').swipeshow();
+		$('#main-slideshow').swipeshow({
+			interval: 5000,
+			mouse: true,
+		});
+	});
+	$(window).load(function() {
+		var leftHalf = $('.main-half-left');
+		var rightHalf = $('.main-half-right');
+		if (leftHalf.height() > rightHalf.height()) {
+			rightHalf.height(leftHalf.height());
+		} else {
+			leftHalf.height(rightHalf.height());
+		}
 	});
 </script>
 

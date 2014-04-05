@@ -1,0 +1,23 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block main %}
+
+<div class="header-block">
+	<div class="header">
+		<a href="/"><img src="{% static "img/bethany_logo.png" %}" alt="bethany_logo"></a>
+	</div>
+	{% include "base/login.html" %}
+</div>
+<div class="clear"></div>
+<div class="nav-block">
+{% include "base/nav.html" %}
+</div><div class="content-block">
+<div class="content-box">
+{% block content %}{% endblock %}
+</div>
+</div>
+
+
+{% endblock %}

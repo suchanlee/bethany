@@ -1,0 +1,40 @@
+{% load staticfiles %}
+
+	<div class="header-login">
+		{% if request.user.is_authenticated %}
+		<div class="nav-loggedin">
+        	<form action="{% url 'django.contrib.auth.views.logout' %}" method="POST">
+				{% csrf_token %}
+        		<table>
+        			<tr>
+        				<td>안녕하세요 <span class="logged-in-username">{{request.user.first_name|title}} {{request.user.last_name|title}}</span>님</td>
+        				<td style="padding-left: 15px;"><input type="submit" value="LOG OUT" class="logout-button"></td>
+        			</tr>
+        		</table>
+            <input type="hidden" name="next" value="/">
+        	</form>
+		</div>
+		{% else %}
+			<form action="/login/" method="POST">
+				{% csrf_token %}
+				<table class="login-table">
+					<tr>
+						<td>{{auth_form.username}}</td>
+						<td>{{auth_form.password}}</td>
+						<td><input type="submit" value="GO" class="login-submit"></td>
+						<td><button class="login-signup"><a href="/register/">SIGN UP</a></button></td>
+				</table>
+			</form>
+		{% endif %}
+	</div>
+
+	<div class="clear"></div>
+
+	<script>
+
+	$(document).ready(function() {
+		$('#id_username').attr('placeholder', 'ID');
+		$('#id_password').attr('placeholder', 'PW');
+	});
+
+	</script>

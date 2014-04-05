@@ -3,7 +3,14 @@ from django.forms import ModelForm
 
 from suit_redactor.widgets import RedactorWidget
 
-from website.models import Sermon, Notice, IthacaLife, KoreanSchool
+from website.models import Sermon, Notice, IthacaLife, KoreanSchool, Interview, Slideshow
+
+
+class SlideshowAdmin(admin.ModelAdmin):
+	list_display = ('created', 'image')
+	fields = ('image',)
+
+admin.site.register(Slideshow, SlideshowAdmin)
 
 
 class SermonAdmin(admin.ModelAdmin):
@@ -26,6 +33,12 @@ class NoticeAdmin(admin.ModelAdmin):
 	date_hierarchy = 'created'
 
 admin.site.register(Notice, NoticeAdmin)
+
+
+class InterviewAdmin(admin.ModelAdmin):
+	list_display = ('major', 'college', 'grad_year')
+
+admin.site.register(Interview, InterviewAdmin)
 
 
 class IthacaLifeForm(ModelForm):

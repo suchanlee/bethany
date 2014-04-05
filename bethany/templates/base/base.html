@@ -1,8 +1,7 @@
 <html>
 {% load staticfiles %}
 <head>
-	<!--<script type="text/javascript" src="//use.typekit.net/foa0rqs.js"></script>
-	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>-->
+	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width">
 	{% block prestyles %}{% endblock %}
 	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
@@ -13,9 +12,8 @@
 	{% block head-js %}{% endblock %}
 </head>
 <body>
-	{% block nav %}{% endblock %}
 	<div id="container">
-	{% block content %}{% endblock %}
+		{% block main %}{% endblock %}
 	</div>
 	{% block js %}
 	{% endblock %}

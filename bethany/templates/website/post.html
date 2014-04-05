@@ -1,4 +1,4 @@
-{% extends "base/base.html" %}
+{% extends "base/structure.html" %}
 
 {% load staticfiles %}
 
@@ -6,9 +6,9 @@
 
 {% block content %}
 
-{% include "base/nav.html" %}
-
 <div class="post-container">
+
+	<a href="{% url 'board' %}">뒤로가기</a>
 
 	<div class="post-title">
 		<h2>{{post.title}}</h2>
@@ -21,10 +21,15 @@
 	<div class="post-info">
 		<table>
 			<tr>
+				{% if post.author %}
 				<td class="post-info-author"><span class="post-info-label">글쓴이</span> {{post.author.username}}</td>
+				{% endif %}
 				<td class="post-info-date"><span class="post-info-label">작성일</span> {{post.created|date:"n-j-y"}}</td>
 				<td class="post-info-views"><span class="post-info-label">조회수</span> {{post.views}}</td>
 			</tr>
+			{% if post.attachment %}
+			<tr><td><a href="/media/{{post.attachment}}" target="_blank">{{attachment_name}}</a></td></tr>
+			{% endif %}
 		</table>
 	</div>
 
@@ -32,11 +37,6 @@
 		{{post.content|safe}}
 	</div>
 
-	<div class="post-comments"></div>
-
 </div>
-
-
-{% include "base/footer.html" %}
 
 {% endblock %}

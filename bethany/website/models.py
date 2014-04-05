@@ -3,6 +3,11 @@ from django.db import models
 import pdb
 
 
+class Slideshow(models.Model):
+	created = models.DateTimeField(auto_now_add=True)
+	image = models.FileField(upload_to='slide_images/')
+
+
 class Sermon(models.Model):
 	link = models.URLField()
 	title = models.CharField(max_length=250)
@@ -53,4 +58,19 @@ class IthacaLife(models.Model):
 
 class KoreanSchool(models.Model):
 	content = models.TextField()
+
+
+class Interview(models.Model):
+	major = models.CharField(max_length=100)
+	college = models.CharField(max_length=50)
+	grad_year = models.CharField(max_length=4)
+	q1 = models.TextField()
+	q2 = models.TextField()
+	q3 = models.TextField()
+	q4 = models.TextField()
+	q5 = models.TextField()
+	q6 = models.TextField()
+
+
+
 
