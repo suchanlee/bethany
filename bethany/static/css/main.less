@@ -61,6 +61,10 @@ p {
 	background-repeat: no-repeat;
 }
 
+.centered {
+	text-align: center;
+}
+
 .header {
 	float: left;
 	position: fixed;
@@ -121,33 +125,38 @@ p {
 		outline: none;
 	}
 
-	.login-submit, .login-signup {
-		font-size: 0.8em;
-		font-family: @sans-serif;
-		background-color: white;
-		font-weight: 600;
-	}
+}
 
-	.login-submit {
-		border: none;
-		border-bottom: 5px solid @main-color;
-		cursor: pointer;
-		&:hover {
-			background-color: @main-color;
-			color: white;
-		}
+.login-submit, .login-signup {
+	font-size: 0.8em;
+	font-family: @sans-serif;
+	background-color: white;
+	font-weight: 600;
+	border: none;
+}
+
+
+.login-submit {
+	height: 30px;
+	border-bottom: 5px solid @main-color;
+	cursor: pointer;
+	&:hover {
+		background-color: @main-color;
+		color: white;
 	}
-	.login-signup {
-		border: none;
-		border-bottom: 5px solid @light-gray;
-		height: 30px;
-		&:hover {
-			background-color: @light-gray;
-		}
-		a {
-			color: @black;
-			text-decoration: none;
-		}
+}
+
+.login-signup {
+	border-bottom: 5px solid @light-gray;
+	padding-bottom: 6px;
+	padding-left: 3px;
+	padding-top: 3px;
+	&:hover {
+		background-color: @light-gray;
+	}
+	a {
+		color: @black;
+		text-decoration: none;
 	}
 }
 
@@ -798,14 +807,16 @@ nav {
 				text-align: right;
 			}
 		}
-		input[type="submit"] {
-			margin-top: 20px;
-			background-color: @main-color;
-			border: none;
-			color: white;
-			cursor: pointer;
-		}
 	}
+}
+
+.form-errors-container {
+	text-align: center;
+}
+
+.form-errors {
+	font-size: 0.75em;
+	color: #B20000;
 }
 
 .register-success {

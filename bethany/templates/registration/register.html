@@ -13,29 +13,65 @@
 	<form action="/register/" method="POST">
 		{% csrf_token %}
 
-		{{form.errors}}
+		<div class="form-errors-container form-errors"></div>
 
 		<table cellpadding="0" cellspacing="0" width="100%" border="0">
+			{% if form.last_name.errors %}
+			<tr>
+				<td></td>
+				<td class="form-errors">{{form.last_name.errors.as_text}}</td>
+			</tr>
+			{% endif %}
 			<tr>
 				<td class="register-form-label">성</td>
 				<td >{{form.last_name}}</td>
 			</tr>
+			{% if form.first_name.errors %}
+			<tr>
+				<td></td>
+				<td class="form-errors">{{form.first_name.errors.as_text}}</td>
+			</tr>
+			{% endif %}
 			<tr>
 				<td class="register-form-label">이름</td>
 				<td>{{form.first_name}}</td>
 			</tr>
+			{% if form.username.errors %}
+			<tr>
+				<td></td>
+				<td class="form-errors">{{form.username.errors.as_text}}</td>
+			</tr>
+			{% endif %}
 			<tr>
 				<td class="register-form-label">아이디</td>
-				<td>{{form.username}}</td>
+				<td class="form-username">{{form.username}}</td>
 			</tr>
+			{% if form.email.errors %}
+			<tr>
+				<td></td>
+				<td class="form-errors">{{form.email.errors.as_text}}</td>
+			</tr>
+			{% endif %}
 			<tr>
 				<td class="register-form-label">이메일</td>
 				<td>{{form.email}}</td>
 			</tr>
+			{% if form.password1.errors %}
+			<tr>
+				<td></td>
+				<td class="form-errors">{{form.password1.errors.as_text}}</td>
+			</tr>
+			{% endif %}
 			<tr>
 				<td class="register-form-label">비밀번호</td>
 				<td>{{form.password1}}</td>
 			</tr>
+			{% if form.password2.errors %}
+			<tr>
+				<td></td>
+				<td class="form-errors">{{form.password2.errors.as_text}}</td>
+			</tr>
+			{% endif %}
 			<tr>
 				<td class="register-form-label">비밀번호 확인</td>
 				<td>{{form.password2}}</td>
@@ -52,7 +88,7 @@
 <script>
 	$('#id_last_name').attr('placeholder', 'Last Name');
 	$('#id_first_name').attr('placeholder', 'First Name');
-	$('#id_username').attr('placeholder', 'ID');
+	$('.form-username input').attr('placeholder', 'ID');
 	$('#id_email').attr('placeholder', 'Email');
 	$('#id_password1').attr('placeholder', 'Password');
 	$('#id_password2').attr('placeholder', 'Password Confirm');

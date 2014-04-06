@@ -346,11 +346,13 @@ def user_register_view(request):
 			except:
 				pass # raise proper exception
 			template_name = 'registration/register_success.html'
-			context = {
-				'form': form,
-				'auth_form': UserLoginForm(),
-			}
-			return TemplateResponse(request, template_name, context, current_app=None)
+
+		context = {
+			'form': form,
+			'auth_form': UserLoginForm(),
+		}
+
+		return TemplateResponse(request, template_name, context, current_app=None)
 
 
 	context = {

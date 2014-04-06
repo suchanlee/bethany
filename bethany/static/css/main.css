@@ -43,6 +43,9 @@ p {
   background-position: center center;
   background-repeat: no-repeat;
 }
+.centered {
+  text-align: center;
+}
 .header {
   float: left;
   position: fixed;
@@ -96,31 +99,33 @@ p {
   padding: 1px 2px 1px 2px;
   outline: none;
 }
-.login-table .login-submit,
-.login-table .login-signup {
+.login-submit,
+.login-signup {
   font-size: 0.8em;
   font-family: 'Nanum Gothic', "Helvetica Neue", Helvetica, Arial, "Lucida Grande", 'museo-sans', sans-serif;
   background-color: white;
   font-weight: 600;
-}
-.login-table .login-submit {
   border: none;
+}
+.login-submit {
+  height: 30px;
   border-bottom: 5px solid #0095c0;
   cursor: pointer;
 }
-.login-table .login-submit:hover {
+.login-submit:hover {
   background-color: #0095c0;
   color: white;
 }
-.login-table .login-signup {
-  border: none;
+.login-signup {
   border-bottom: 5px solid #dddddd;
-  height: 30px;
+  padding-bottom: 6px;
+  padding-left: 3px;
+  padding-top: 3px;
 }
-.login-table .login-signup:hover {
+.login-signup:hover {
   background-color: #dddddd;
 }
-.login-table .login-signup a {
+.login-signup a {
   color: #444444;
   text-decoration: none;
 }
@@ -726,12 +731,12 @@ nav ul li .nav-english {
 .register form table .register-form-label {
   text-align: right;
 }
-.register form input[type="submit"] {
-  margin-top: 20px;
-  background-color: #0095c0;
-  border: none;
-  color: white;
-  cursor: pointer;
+.form-errors-container {
+  text-align: center;
+}
+.form-errors {
+  font-size: 0.75em;
+  color: #B20000;
 }
 .register-success {
   margin-top: 60px;

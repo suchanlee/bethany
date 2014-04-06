@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from suit_redactor.widgets import RedactorWidget
 
 from simple_board.models import Post
-
+import pdb
 
 class PostForm(ModelForm):
 	class Meta:
