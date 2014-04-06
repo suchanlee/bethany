@@ -731,6 +731,9 @@ nav ul li .nav-english {
 .register form table .register-form-label {
   text-align: right;
 }
+.register input[type="submit"] {
+  cursor: pointer;
+}
 .form-errors-container {
   text-align: center;
 }
