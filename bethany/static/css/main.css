@@ -533,7 +533,7 @@ nav ul li .nav-english {
   text-decoration: underline;
 }
 .main-half-left {
-  width: 44%;
+  width: 49%;
   border-right: 1px solid #bbbbbb;
 }
 .main-half-left h2,
@@ -555,7 +555,7 @@ nav ul li .nav-english {
   background-color: #e6e6e6;
 }
 .main-half-right {
-  width: 55%;
+  width: 50%;
 }
 .main-half-right h2,
 .main-half-right p {

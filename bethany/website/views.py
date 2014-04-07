@@ -24,7 +24,7 @@ class HomeView(TemplateView):
 	def get_context_data(self, **kwargs):
 		context = super(HomeView, self).get_context_data(**kwargs)
 		context = {}
-		context['sermon'] = Sermon.objects.order_by('-created')[1]
+		context['sermon'] = Sermon.objects.order_by('-created')[0]
 		context['posts'] = Post.objects.order_by('-created')[:5]
 		context['notices'] = Notice.objects.order_by('-created')[:5]
 		context['slides'] = Slideshow.objects.order_by('-created')[:3]
