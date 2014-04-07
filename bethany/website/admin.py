@@ -1,5 +1,6 @@
 from django.contrib import admin
 from django.forms import ModelForm
+from django import forms
 
 from suit_redactor.widgets import RedactorWidget
 
@@ -22,6 +23,14 @@ admin.site.register(Sermon, SermonAdmin)
 
 
 class NoticeForm(ModelForm):
+
+	NOTICE_TYPES = (
+		('notice', 'Regular Notice'),
+		('program', 'Worship Program'),
+	)
+
+	notice_type = forms.ChoiceField(required=True, choices=NOTICE_TYPES)
+
 	class Meta:
 		widgets = {
 			'content': RedactorWidget(editor_options={'lang':'en'})

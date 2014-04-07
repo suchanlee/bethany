@@ -89,7 +89,8 @@ class BoardView(TemplateView):
 		posts = []
 		for board in boards:
 			posts.append(Post.objects.filter(board=board)[:5])
-		context['notices'] = Notice.objects.all()[:5]
+		context['notices'] = Notice.objects.filter(notice_type='notice')[:5]
+		context['programs'] = Notice.objects.filter(notice_type='program')[:5]
 		context['board1'] = boards[0]
 		context['board2'] = boards[1]
 		context['posts1'] = posts[0]
@@ -126,15 +127,15 @@ class BoardDetailView(TemplateView):
 		return context
 
 
-class NoticeDetailView(TemplateView):
+class NoticeView(TemplateView):
 	template_name = 'website/board_detail.html'
 
 	def get_context_data(self, **kwargs):
-		context = super(NoticeDetailView, self).get_context_data(**kwargs)
+		context = super(NoticeView, self).get_context_data(**kwargs)
 		context = {}
 		context['auth_form'] = UserLoginForm
 		context['page'] = 'board'
-		notice_list = Notice.objects.all()
+		notice_list = Notice.objects.filter(notice_type='notice')
 		paginator = Paginator(notice_list, 20)
 		page = self.request.GET.get('pages')
 		try:
@@ -151,6 +152,34 @@ class NoticeDetailView(TemplateView):
 		context['total_pages'] = [i for i in range(1, paginator.num_pages+1)]
 		context['notice'] = 1
 		return context
+
+
+class ProgramView(TemplateView):
+	template_name = 'website/board_detail.html'
+
+	def get_context_data(self, **kwargs):
+		context = super(ProgramView, self).get_context_data(**kwargs)
+		context = {}
+		context['auth_form'] = UserLoginForm
+		context['page'] = 'board'
+		notice_list = Notice.objects.filter(notice_type='program')
+		paginator = Paginator(notice_list, 20)
+		page = self.request.GET.get('pages')
+		try:
+			notices = paginator.page(page)
+		except PageNotAnInteger:
+			# If page is not an integer, deliver first page
+			notices = paginator.page(1)
+		except EmptyPage:
+			# If page is out of range (e.g. 9999), deliver last page of results.
+			notices = paginator.page(paginator.num_pages)
+
+		context['posts'] = notices
+		context['current_page'] = notices.number
+		context['total_pages'] = [i for i in range(1, paginator.num_pages+1)]
+		context['program'] = 1
+		return context
+
 
 class NoticePostView(TemplateView):
 	template_name = 'website/post.html'

@@ -15,6 +15,8 @@
 			<div class="board-title">
 				{% if notice %}
 				<h2>공지사항</h2>
+				{% elif program %}
+				<h2>주보</h2>
 				{% else %}
 				<h2>{{board.name}}</h2>
 				{% endif %}
@@ -33,7 +35,7 @@
 				</tr>
 				{% for p in posts %}
 				<tr>
-					{% if notice %}
+					{% if notice or program %}
 					<td class="board-title"><a href="/board/post/notice/{{p.pk}}">{{p.title}}</a></td>
 					{% else %}
 					<td class="board-title"><a href="/board/post/{{board.pk}}/{{p.pk}}">{{p.title}}</a></td>

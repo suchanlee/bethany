@@ -39,6 +39,7 @@ class Sermon(models.Model):
 
 
 class Notice(models.Model):
+	notice_type = models.CharField(max_length=25)
 	title = models.CharField(max_length=250)
 	content = models.TextField()
 	attachment = models.FileField(upload_to='notice/attachments/', blank=True)

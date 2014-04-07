@@ -74,6 +74,26 @@
 				{% endfor %}
 			</table>
 		</div>
+
+		<div class="board-layout">
+			<div class="board-title">
+				<h2><a href="/board/notice/">주보</a></h2>
+				<p class="board-see-more"><a href="/board/notice/">MORE</a></p>
+			</div>
+			<table cellpadding="0" cellspacing="0" width="100%" border="0">
+				<tr class="board-table-header">
+					<td class="board-title">Title</td>
+					<td class="board-date">Date</td>
+				</tr>
+				{% for p in programs %}
+				<tr>
+					<td class="board-title"><a href="/board/post/notice/{{p.pk}}">{{p.title}}</a></td>
+					<td class="board-date">{{p.created|date:"n-j-y"}}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+
 	</div>
 
 </div>
