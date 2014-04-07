@@ -9,7 +9,7 @@
 <div class="sermon-detail">
 	<div class="sermon-detail-info">
 		<h1>{{sermon.title}}</h1>
-		<p class="sermon-detail-info">{{sermon.bible_verses}} | {{sermon.preacher}} | {{sermon.date|date:"n.j.o"}}</p>
+		<p class="sermon-detail-info">{% if sermon.bible_verses|length > 3 %}{{sermon.bible_verses}} |{% endif %} {{sermon.preacher}} | {{sermon.date|date:"n.j.o"}}</p>
 		<p class="sermon-list-link"><a href="/sermons/">설교 목록</a></p>
 		<div class="clear"></div>
 	</div>

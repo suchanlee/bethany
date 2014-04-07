@@ -56,8 +56,8 @@
 		<h2><a href="{% url 'sermons' %}">THIS WEEK'S SERMON</a></h2>
 		<div class="home-sermon">
 			<a href="{% url 'sermon_detail' sermon.pk %}"><img src="{{sermon.thumbnail}}" alt="sermon thumbnail"></a>
-			<p class="home-sermon-title"><a href="{% url 'sermon_detail' sermon.pk %}">{{sermon.title}}</a> <span class="home-sermon-verse">{{sermon.bible_verses}}</span></p>
-			<p class="home-sermon-info">{{sermon.preacher}} | {{sermon.date|date:"M j, o"}}</p>
+			<p class="home-sermon-title"><a href="{% url 'sermon_detail' sermon.pk %}">{{sermon.title}}</a> <span class="home-sermon-verse"></span></p>
+			<p class="home-sermon-info">{% if sermon.bible_verses|length > 3 %}{{sermon.bible_verses}} |{% endif %} {{sermon.preacher}} | {{sermon.date|date:"M j, o"}}</p>
 		</div>
 	</div>
 	<div class="clear"></div>

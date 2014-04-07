@@ -15,7 +15,7 @@
 			<div class="sermon-container">
 				<a href="/sermons/{{s.pk}}/"><img src="{{s.thumbnail}}" alt="{{s.title}}"></a>
 				<p class="sermon-title"><a href="/sermons/{{s.pk}}/">{{s.title}}</a></p>
-				<p class="sermon-info">{{s.bible_verses}} | {{s.preacher}} | {{s.date|date:"n.j.o"}}</p>
+				<p class="sermon-info">{% if s.bible_verses|length > 3 %}{{s.bible_verses}} |{% endif %} {{s.preacher}} | {{s.date|date:"n.j.o"}}</p>
 			</div>
 		</li>
 		{% endfor %}
