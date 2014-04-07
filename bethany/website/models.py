@@ -1,3 +1,5 @@
+import os
+
 from django.db import models
 
 import pdb
@@ -38,11 +40,15 @@ class Sermon(models.Model):
 		super(Sermon, self).save(*args, **kwargs)
 
 
+def get_upload_path(instance, filename):
+	return os.path.join('notice/attachments', '{}'.format(filename.encode('ascii', 'ignore')))
+
+
 class Notice(models.Model):
 	notice_type = models.CharField(max_length=25)
 	title = models.CharField(max_length=250)
 	content = models.TextField()
-	attachment = models.FileField(upload_to='notice/attachments/', blank=True)
+	attachment = models.FileField(upload_to=get_upload_path, blank=True)
 	views = models.IntegerField(blank=True, null=True, default=0)
 	created = models.DateTimeField(auto_now_add=True)
 
