@@ -17,7 +17,7 @@ p {
 }
 #container {
   margin: 0 auto;
-  width: 870px;
+  width: 810px;
   padding-top: 25px;
   position: relative;
 }
@@ -36,7 +36,7 @@ p {
 }
 .content-block {
   width: 650px;
-  margin-left: 220px;
+  margin-left: 160px;
 }
 .background {
   background-size: cover;
