@@ -554,6 +554,9 @@ nav ul li .nav-english {
 .main-half-left .home-posttable-heading {
   background-color: #e6e6e6;
 }
+.main-half-left .home-posttable-date {
+  width: 30%;
+}
 .main-half-right {
   width: 50%;
 }
