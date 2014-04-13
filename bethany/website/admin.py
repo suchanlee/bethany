@@ -39,6 +39,7 @@ class NoticeForm(ModelForm):
 class NoticeAdmin(admin.ModelAdmin):
 	form = NoticeForm
 	list_display = ('title', 'created')
+	fields = ('notice_type', 'title', 'content', 'attachment', 'created',)
 	date_hierarchy = 'created'
 
 admin.site.register(Notice, NoticeAdmin)

@@ -1,4 +1,4 @@
-import os
+import os, datetime
 
 from django.db import models
 
@@ -50,13 +50,20 @@ class Notice(models.Model):
 	content = models.TextField()
 	attachment = models.FileField(upload_to=get_upload_path, blank=True)
 	views = models.IntegerField(blank=True, null=True, default=0)
-	created = models.DateTimeField(auto_now_add=True)
+	created = models.DateTimeField(blank=True, null=True)
 
 	class Meta:
 		ordering = ['-created']
 
 	def __unicode(self):
 		return self.title
+
+	def save(self, *args, **kwargs):
+		# add created datetime
+		if not self.created:
+			self.created = datetime.datetime.now()
+
+		super(Notice, self).save(*args, **kwargs)
 
 
 class IthacaLife(models.Model):
