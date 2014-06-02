@@ -56,34 +56,14 @@
 			<td>Upson Hall 1st Floor Lounge</td>
 		</tr>
 	</table>
+
+	<iframe src="https://mapsengine.google.com/map/u/0/embed?mid=zrQgbrYQ5AZY.kr3ebBeh2hNU" width="640" height="480"></iframe>
+
+	<h2>교회 이벤트</h2>
+	<div id="upto-calendar-container-7yVOKO" class="upto-calendar-plugin"><script>!function(c,b,a){function d(h){var e=document.getElementById("upto-calendar-container-"+c),f=document.createElement("SCRIPT"),g="http://upto.com/js/embed.js";f.onreadystatechange=function(){if(f.readyState==="loaded"||f.readyState==="complete"){f.onreadystatechange=null;h()}};f.onload=function(){h()};f.setAttribute("src",g);e.parentNode.insertBefore(f,e)}d(function(){upto.init(c,b,a)})}("7yVOKO",["spUO"],{"template":"3"});</script></div>
+
 </div>
 
-<div id="map-canvas" class="slide-div"></div>
 
 {% endblock %}
 
-{% block js %}
-
-<script src="{% static "js/jquery.swipeshow.min.js" %}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
-<script>
-function initialize() {
-  var myLatlng = new google.maps.LatLng(42.443985, -76.482874);
-  var mapOptions = {
-    zoom: 17,
-    center: myLatlng
-  }
-  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-
-  var marker = new google.maps.Marker({
-      position: myLatlng,
-      map: map,
-      title: 'Upson Hall - 124 Hoy Road, Ithaca, NY 14850'
-  });
-}
-
-google.maps.event.addDomListener(window, 'load', initialize);
-
-</script>
-
-{% endblock %}

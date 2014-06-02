@@ -23,12 +23,10 @@ class HomeView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(HomeView, self).get_context_data(**kwargs)
-		context = {}
 		context['sermon'] = Sermon.objects.order_by('-created')[0]
 		context['posts'] = Post.objects.order_by('-created')[:5]
 		context['notices'] = Notice.objects.order_by('-created')[:5]
 		context['slides'] = Slideshow.objects.order_by('-created')[:3]
-		context['auth_form'] = UserLoginForm
 		return context
 
 
@@ -37,10 +35,8 @@ class CommunityView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(CommunityView, self).get_context_data(**kwargs)
-		context = {}
 		context['object'] = IthacaLife.objects.get(id=1)
 		context['page'] = 'community'
-		context['auth_form'] = UserLoginForm
 		return context
 
 
@@ -48,10 +44,9 @@ class StudentTipView(TemplateView):
 	template_name = 'website/student.html'
 
 	def get_context_data(self, **kwargs):
-		context = {}
+		context = super(StudentTipView, self).get_context_data(**kwargs)
 		context['page'] = 'community'
 		context['subpage'] = 'student'
-		context['auth_form'] = UserLoginForm
 		context['interviews'] = Interview.objects.all().order_by('major')
 		return context
 
@@ -61,9 +56,7 @@ class KoreanSchoolView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(KoreanSchoolView, self).get_context_data(**kwargs)
-		context = {}
 		context['object'] = KoreanSchool.objects.get(id=1)
-		context['auth_form'] = UserLoginForm
 		context['page'] = 'korean'
 		return context
 
@@ -72,8 +65,7 @@ class ContactView(TemplateView):
 	template_name = 'website/contact.html'
 
 	def get_context_data(self, **kwargs):
-		context = {}
-		context['auth_form'] = UserLoginForm
+		context = super(ContactView, self).get_context_data(**kwargs)
 		context['page'] = 'contact'
 		return context
 
@@ -83,7 +75,6 @@ class BoardView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(BoardView, self).get_context_data(**kwargs)
-		context = {}
 		context['page'] = 'board'
 		boards = Board.objects.all()
 		posts = []
@@ -95,7 +86,6 @@ class BoardView(TemplateView):
 		context['board2'] = boards[1]
 		context['posts1'] = posts[0]
 		context['posts2'] = posts[1]
-		context['auth_form'] = UserLoginForm
 		return context
 
 
@@ -104,8 +94,6 @@ class BoardDetailView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(BoardDetailView, self).get_context_data(**kwargs)
-		context = {}
-		context['auth_form'] = UserLoginForm
 		context['page'] = 'board'
 		board = Board.objects.get(pk=kwargs['pk'])
 		post_list = Post.objects.filter(board=board)
@@ -132,7 +120,6 @@ class NoticeView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(NoticeView, self).get_context_data(**kwargs)
-		context = {}
 		context['auth_form'] = UserLoginForm
 		context['page'] = 'board'
 		notice_list = Notice.objects.filter(notice_type='notice')
@@ -159,7 +146,6 @@ class ProgramView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(ProgramView, self).get_context_data(**kwargs)
-		context = {}
 		context['auth_form'] = UserLoginForm
 		context['page'] = 'board'
 		notice_list = Notice.objects.filter(notice_type='program')
@@ -186,7 +172,6 @@ class NoticePostView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(NoticePostView, self).get_context_data(**kwargs)
-		context = {}
 		context['auth_form'] = UserLoginForm
 		context['page'] = 'board'
 
@@ -208,7 +193,6 @@ class PostView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(PostView, self).get_context_data(**kwargs)
-		context = {}
 		context['auth_form'] = UserLoginForm
 		context['page'] = 'board'
 
@@ -274,7 +258,6 @@ class AboutView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(AboutView, self).get_context_data(**kwargs)
-		context = {}
 		context['auth_form'] = UserLoginForm
 		context['page'] = 'about'
 		return context
@@ -285,7 +268,6 @@ class VisitView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(VisitView, self).get_context_data(**kwargs)
-		context = {}
 		context['auth_form'] = UserLoginForm
 		context['page'] = 'visit'
 		return context
