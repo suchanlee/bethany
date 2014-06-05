@@ -1,0 +1,156 @@
+{% extends "base/base.html" %}
+
+{% load staticfiles %}
+
+{% block title %}Welcome to Cornell Bethany Korean Church{% endblock %}
+
+{% block styles %}
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block main %}
+
+<div class="block-width home home-1 bg" style="background-image: url('{{month.image.url}}');">
+	<img src="{% static 'img/logo-white.png' %}" alt="bethany logo">
+	<div class="home-social">
+		<a href="https://www.facebook.com/groups/291170957645458" target="_blank"><i class="fa fa-facebook-square"></i></a> <a href="http://cornellbethany.tumblr.com" target="_blank"><i class="fa fa-tumblr-square"></i></a> <a href="https://www.youtube.com/channel/UCl480aXJgzaRoAdMGupvnkQ" target="_blank"><i class="fa fa-youtube-square"></i></a>
+	</div>
+</div>
+
+
+<div class="home home-2 block-width">
+	<h3>{{month.month_text}}</h3>
+	<p class="verse-paragraph">{{month.month_verse_text}}</p>
+	<p>{{month.month_verse}}</p>
+</div>
+
+<div class="home home-3 block-width">
+	<h2>코넬 베다니 교회는 하나님을 <br>영화롭게 하기 위한 교회 입니다.</h2>
+	<p>저희는 예수 그리스도 보혈의 사랑으로 회복됨과 세워짐이 있는 교회, 예수 그리스도 부활의 능력으로 승리하고 증거하는 교회를 소망합니다.</p>
+	<p class="home-link"><a href="{% url 'about' %}">베다니에 대하여</a></p>
+</div>
+
+<div class="home home-4 block-width">
+	<h2>코넬 베다니 설교 보기</h2>
+	<p>{{sermon.date|date:"n"}}월 {{sermon.date|date:"j"}}일 이상원 목사님 설교 "{{sermon.title}}" 보기</p>
+	{{sermon.embed|safe}}
+	<p class="home-link"><a href="{% url 'sermons' %}">설교 더 보기</a></p>
+</div>
+
+<div class="home home-6 block-width bg" style="background-image: url('{% static 'img/pastor_pic6.jpg' %}')">
+	<h2>담임목사 | 이상원</h2>
+	<p>서울신학대학교 신학과 졸업(B.A.)</p>
+	<p>연세대학교 연합신학대학원 졸업(M.Div.목회신학전공)</p>
+	<p>Dallas Theological Seminary 졸업(Th.M. 성경강해.목회사역전공)</p>
+	<p class="home-link"><a href="{% url 'about' %}">섬김이 더 보기</a></p>
+</div>
+
+<div class="home home-7 block-width">
+	<h2>베다니 교회 찾아오기</h2>
+	<p>코넬 베다니 교회는 코넬 대학교 학생 단체로 정식 등록되어 있으며 코넬 메인 캠퍼스인 이타카 캠퍼스에서 예배를 드립니다.</p>
+	<h3>예배 시간표</h3>
+	<table>
+		<tr>
+			<td>주일 예배</td>
+			<td>주일 12:30pm</td>
+			<td>Upson Hall B17</td>
+		</tr>
+		<tr>
+			<td>어린이 주일 학교</td>
+			<td>주일 12:30pm</td>
+			<td>Upson Hall 109</td>
+		</tr>
+		<tr>
+			<td>대학 청년부 모임</td>
+			<td>금요일 7:30pm</td>
+			<td>Willard Straight Hall, Garden Room</td>
+		</tr>
+		<tr>
+			<td>삶성경공부 형제 모임</td>
+			<td>주일 3:00pm</td>
+			<td>문의 김찬홍 집사 (1 607-229-8481)</td>
+		</tr>
+		<tr>
+			<td>삶성경공부 자매 모임</td>
+			<td>금요일 10:00am</td>
+			<td>문의 신혜선 집사 (1 607-339-8663)</td>
+		</tr>
+		<tr>
+			<td>한글 학교</td>
+			<td>주일 3:00pm</td>
+			<td>Upson Hall 1st Floor Lounge</td>
+		</tr>
+	</table>
+
+	<h3>찾아오시는 길</h3>
+	<p>코넬 캠퍼스 Schoellkopf Stadium 뒤에 있는 주차장에 파킹하신 후 Upson Hall로 걸어 오시면 됩니다.</p>
+	<iframe src="https://mapsengine.google.com/map/u/0/embed?mid=zrQgbrYQ5AZY.kr3ebBeh2hNU" width="640" height="480"></iframe>
+
+</div>
+
+<div class="home home-9 block-width">
+	<div class="block-group">
+		<div class="block-width block bg" style="background-image: url('{% static 'img/ithaca_citizen2.jpg' %}');">
+			<h2><a href="{% url 'community' %}">이타카 주민들의 이타카 생활 팁!</a></h2>
+		</div>
+		<div class="block-width block bg" style="background-image: url('{% static 'img/cornell_students2.jpg' %}');">
+			<h2><a href="{% url 'student' %}">코넬 학생들의 학교 노하우!</a></h2>
+		</div>
+	</div>
+</div>
+
+<div class="home home-8 block-width">
+	<h2>베다니 교회 연락하기</h2>
+	<div class="block-group">
+		<h3>교회 문의</h3>
+		<div class="block b1"> </div>
+		<div class="block b2">
+			<i class="fa fa-envelope"></i>
+			<p class="home-contact">Email</p>
+			<p><a href="">weonity@yahoo.com</a></p>
+		</div>
+		<div class="block b3">
+			<i class="fa fa-phone"></i>
+			<p class="home-contact">Phone</p>
+			<p>1 718-869-3570</p>
+		</div>
+		<div class="block b4"> </div>
+	</div>
+	<div class="clear-float"></div>
+	<div class="block-group">
+		<h3>이타카 정착 문의</h3>
+		<div class="block b1"> </div>
+		<div class="block b2">
+			<i class="fa fa-envelope"></i>
+			<p class="home-contact">Email</p>
+			<p><a href="">haesun1964@gmail.com</a></p>
+		</div>
+		<div class="block b3">
+			<i class="fa fa-phone"></i>
+			<p class="home-contact">Phone</p>
+			<p>1 607-339-8663</p>
+		</div>
+		<div class="block b4"> </div>
+	</div>
+	<div class="clear-float"></div>
+</div>
+
+
+{% endblock %}
+
+{% block js %}
+
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

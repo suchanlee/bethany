@@ -10,6 +10,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     url(r'^$', views.HomeView.as_view(), name='home'),
+    url(r'^preview/$', views.HomePreviewView.as_view(), name='home_preview'),
     url(r'^about/$', views.AboutView.as_view(), name='about'),
     url(r'^visit/$', views.VisitView.as_view(), name='visit'),
     url(r'^community/$', views.CommunityView.as_view(), name='community'),

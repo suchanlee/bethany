@@ -5,6 +5,17 @@ from django.db import models
 import pdb
 
 
+class MonthInfo(models.Model):
+	month_text = models.CharField(max_length=140)
+	month_verse = models.CharField(max_length=30)
+	month_verse_text = models.TextField()
+	image = models.FileField(upload_to='month_images/')
+
+class HomeImage(models.Model):
+	created = models.DateTimeField(auto_now_add=True)
+	image_source = models.URLField()
+
+
 class Slideshow(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	image = models.FileField(upload_to='slide_images/')
@@ -32,7 +43,7 @@ class Sermon(models.Model):
 		'''
 		try:
 			vid_id = self.link.split('watch?v=')[1]
-			self.embed = '<iframe class="sermon-embed" src="https://www.youtube.com/embed/{}" frameborder="0" allowfullscreen></iframe>'.format(vid_id)
+			self.embed = '<iframe class="sermon-embed" src="https://www.youtube.com/embed/{}?rel=0;3&amp;autohide=1&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>'.format(vid_id)
 			self.thumbnail = 'http://img.youtube.com/vi/{}/hqdefault.jpg'.format(vid_id)
 		except:
 			print 'Sermon save failed'

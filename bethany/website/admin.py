@@ -4,7 +4,18 @@ from django import forms
 
 from suit_redactor.widgets import RedactorWidget
 
-from website.models import Sermon, Notice, IthacaLife, KoreanSchool, Interview, Slideshow
+from website.models import (Sermon, Notice, IthacaLife, KoreanSchool,
+							Interview, Slideshow, MonthInfo, HomeImage)
+
+class MonthInfoAdmin(admin.ModelAdmin):
+	list_display = ('month_text', 'month_verse')
+
+admin.site.register(MonthInfo, MonthInfoAdmin)
+
+class HomeImageAdmin(admin.ModelAdmin):
+	pass
+
+admin.site.register(HomeImage, HomeImageAdmin)
 
 
 class SlideshowAdmin(admin.ModelAdmin):

@@ -2,10 +2,11 @@
 {% load staticfiles %}
 <head>
 	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta name="description" content="코넬 베다니 교회는 코넬 캠퍼스에 위치한 예수 그리스도 보혈의 사랑으로 회복됨과 세워짐이 있는 교회, 예수 그리스도 부활의 능력으로 승리하고 증거하는 교회를 소망합니다.">
 	{% block prestyles %}{% endblock %}
-	<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+<link rel="stylesheet" type="text/css" href="{% static "css/main.css" %}">
+	<link rel="stylesheet" href="{% static 'css/pocketgrid.min.css' %}">
 	<title>{% block title %}{% endblock %}</title>
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	{% block styles %}{% endblock %}

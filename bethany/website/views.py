@@ -11,7 +11,8 @@ from django.contrib.auth import login, authenticate
 
 from braces.views import LoginRequiredMixin, StaffuserRequiredMixin
 
-from website.models import Sermon, IthacaLife, KoreanSchool, Notice, Interview, Slideshow
+from website.models import (Sermon, IthacaLife, KoreanSchool, Notice,
+							Interview, Slideshow, MonthInfo, HomeImage)
 from simple_board.models import Board, Post
 from website.forms import PostForm, UserLoginForm, UserRegistrationForm
 
@@ -27,6 +28,27 @@ class HomeView(TemplateView):
 		context['posts'] = Post.objects.order_by('-created')[:5]
 		context['notices'] = Notice.objects.order_by('-created')[:5]
 		context['slides'] = Slideshow.objects.order_by('-created')[:3]
+		try:
+			context['month'] = MonthInfo.objects.get(id=1)
+			context['homeimages'] = HomeImage.objects.order_by('-created')[:5]
+		except:
+			pass
+		return context
+
+class HomePreviewView(TemplateView):
+	template_name = 'website/home2.html'
+
+	def get_context_data(self, **kwargs):
+		context = super(HomePreviewView, self).get_context_data(**kwargs)
+		context['sermon'] = Sermon.objects.order_by('-created')[0]
+		context['posts'] = Post.objects.order_by('-created')[:5]
+		context['notices'] = Notice.objects.order_by('-created')[:5]
+		context['slides'] = Slideshow.objects.order_by('-created')[:3]
+		try:
+			context['month'] = MonthInfo.objects.get(id=1)
+			context['homeimages'] = HomeImage.objects.order_by('-created')[:5]
+		except:
+			pass
 		return context
 
 
