@@ -25,36 +25,44 @@
 	<p>코넬 베다니 교회는 코넬 대학교 학생 단체로 정식 등록되어 있으며 코넬 메인 캠퍼스인 이타카 캠퍼스에서 예배를 드립니다.</p>
 	<h2>예배 시간표</h2>
 	<table>
+		{% for service in service_schedules %}
 		<tr>
-			<td>주일 예배</td>
-			<td>주일 12:30pm</td>
-			<td>Phillips Hall 101</td>
+			<td>{{service.title}}</td>
+			<td>{{service.hours}}</td>
+			<td>{{service.location}}</td>
 		</tr>
-		<tr>
-			<td>어린이 주일 학교</td>
-			<td>주일 12:30pm</td>
-			<td>Upson Hall 109</td>
-		</tr>
-		<tr>
-			<td>대학 청년부 모임</td>
-			<td>금요일 7:30pm</td>
-			<td>Willard Straight Hall, Garden Room</td>
-		</tr>
-		<tr>
-			<td>삶성경공부 형제 모임</td>
-			<td>주일 3:00pm</td>
-			<td>문의 이상원 목사 (+1 718-869-3570)</td>
-		</tr>
-		<tr>
-			<td>삶성경공부 자매 모임</td>
-			<td>금요일 10:00am</td>
-			<td>문의 신혜선 집사 (+1 607-339-8663)</td>
-		</tr>
-		<tr>
-			<td>한글 학교</td>
-			<td>주일 3:00pm</td>
-			<td>Upson Hall 1st Floor Lounge</td>
-		</tr>
+		{% endfor %}
+		
+<!-- 		<tr>
+	<td>주일 예배</td>
+	<td>주일 12:30pm</td>
+	<td>Phillips Hall 101</td>
+</tr>
+<tr>
+	<td>어린이 주일 학교</td>
+	<td>주일 12:30pm</td>
+	<td>Upson Hall 109</td>
+</tr>
+<tr>
+	<td>대학 청년부 모임</td>
+	<td>금요일 7:30pm</td>
+	<td>Willard Straight Hall, Garden Room</td>
+</tr>
+<tr>
+	<td>삶성경공부 형제 모임</td>
+	<td>주일 3:00pm</td>
+	<td>문의 이상원 목사 (+1 718-869-3570)</td>
+</tr>
+<tr>
+	<td>삶성경공부 자매 모임</td>
+	<td>금요일 10:00am</td>
+	<td>문의 신혜선 집사 (+1 607-339-8663)</td>
+</tr>
+<tr>
+	<td>한글 학교</td>
+	<td>주일 3:00pm</td>
+	<td>Upson Hall 1st Floor Lounge</td>
+</tr> -->
 	</table>
 
 	<iframe src="https://mapsengine.google.com/map/u/0/edit?mid=zNeH88IBcuGw.kF8wZksAjYuE" width="640" height="480"></iframe>

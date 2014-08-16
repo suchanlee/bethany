@@ -5,7 +5,7 @@ from django import forms
 from suit_redactor.widgets import RedactorWidget
 
 from website.models import (Sermon, Notice, IthacaLife, KoreanSchool,
-							Interview, Slideshow, MonthInfo, HomeImage)
+							Interview, Slideshow, MonthInfo, HomeImage, ServiceSchedule)
 
 class MonthInfoAdmin(admin.ModelAdmin):
 	list_display = ('month_text', 'month_verse')
@@ -84,3 +84,9 @@ class KoreanSchoolAdmin(admin.ModelAdmin):
 	form = KoreanSchoolForm
 
 admin.site.register(KoreanSchool, KoreanSchoolAdmin)
+
+class ServiceScheduleAdmin(admin.ModelAdmin):
+	fields = ('title','hours','location')
+
+admin.site.register(ServiceSchedule, ServiceScheduleAdmin)
+
