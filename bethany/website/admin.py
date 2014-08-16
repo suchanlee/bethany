@@ -86,7 +86,7 @@ class KoreanSchoolAdmin(admin.ModelAdmin):
 admin.site.register(KoreanSchool, KoreanSchoolAdmin)
 
 class ServiceScheduleAdmin(admin.ModelAdmin):
-	fields = ('title','hours','location')
+	list_display = ('title')
 
 admin.site.register(ServiceSchedule, ServiceScheduleAdmin)
 
