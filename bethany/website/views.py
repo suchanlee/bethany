@@ -12,7 +12,7 @@ from django.contrib.auth import login, authenticate
 from braces.views import LoginRequiredMixin, StaffuserRequiredMixin
 
 from website.models import (Sermon, IthacaLife, KoreanSchool, Notice,
-							Interview, Slideshow, MonthInfo, HomeImage)
+							Interview, Slideshow, MonthInfo, HomeImage, ServiceSchedule)
 from simple_board.models import Board, Post
 from website.forms import PostForm, UserLoginForm, UserRegistrationForm
 
@@ -292,6 +292,7 @@ class VisitView(TemplateView):
 		context = super(VisitView, self).get_context_data(**kwargs)
 		context['auth_form'] = UserLoginForm
 		context['page'] = 'visit'
+		context['service_schedules'] = ServiceSchedule.objects.all()
 		return context
 
 
