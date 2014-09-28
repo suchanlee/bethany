@@ -31,9 +31,8 @@
 			<td>{{service.hours}}</td>
 			<td>{{service.location}}</td>
 		</tr>
-		{% endfor %}
-		
-<!-- 		<tr>
+{%empty %}
+ 		<tr>
 	<td>주일 예배</td>
 	<td>주일 12:30pm</td>
 	<td>Phillips Hall 101</td>
@@ -62,7 +61,8 @@
 	<td>한글 학교</td>
 	<td>주일 3:00pm</td>
 	<td>Upson Hall 1st Floor Lounge</td>
-</tr> -->
+</tr>
+{% endfor %}
 	</table>
 
 	<iframe src="https://mapsengine.google.com/map/u/0/edit?mid=zNeH88IBcuGw.kF8wZksAjYuE" width="640" height="480"></iframe>
