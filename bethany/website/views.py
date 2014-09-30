@@ -290,9 +290,9 @@ class VisitView(TemplateView):
 
 	def get_context_data(self, **kwargs):
 		context = super(VisitView, self).get_context_data(**kwargs)
-		context['auth_form'] = UserLoginForm
-		context['page'] = 'visit'
 		context['service_schedules'] = ServiceSchedule.objects.all()
+		context['page'] = 'visit'
+		context['auth_form'] = UserLoginForm
 		return context
 
 
