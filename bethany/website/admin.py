@@ -80,14 +80,15 @@ class KoreanSchoolForm(ModelForm):
 			'content': RedactorWidget(editor_options={'lang':'en'})
 		}
 
+class ServiceScheduleAdmin(admin.ModelAdmin):
+	pass
+	# list_display = ('title', 'hours', 'location')
+
+admin.site.register(ServiceSchedule, ServiceScheduleAdmin)
+
 class KoreanSchoolAdmin(admin.ModelAdmin):
 	form = KoreanSchoolForm
 
 admin.site.register(KoreanSchool, KoreanSchoolAdmin)
 
-class ServiceScheduleAdmin(admin.ModelAdmin):
-	list_display = ('title','hours','location')
-	fields = ('title','hours','location')
-
-admin.site.register(ServiceSchedule, ServiceScheduleAdmin)
 
