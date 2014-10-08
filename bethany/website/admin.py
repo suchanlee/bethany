@@ -81,8 +81,7 @@ class KoreanSchoolForm(ModelForm):
 		}
 
 class ServiceScheduleAdmin(admin.ModelAdmin):
-	pass
-	# list_display = ('title', 'hours', 'location')
+	list_display = ('title', 'hours', 'location')
 
 admin.site.register(ServiceSchedule, ServiceScheduleAdmin)
 
