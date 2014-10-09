@@ -81,7 +81,7 @@ class KoreanSchoolForm(ModelForm):
 		}
 
 class ServiceScheduleAdmin(admin.ModelAdmin):
-	list_display = ('title', 'hours', 'location')
+	list_display = ('title', )
 
 admin.site.register(ServiceSchedule, ServiceScheduleAdmin)
 
